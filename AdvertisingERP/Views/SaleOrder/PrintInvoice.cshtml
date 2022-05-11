@@ -1,0 +1,243 @@
+﻿@model AdvertisingERP.Models.SaleOrder
+
+@{
+    Layout = null;
+}
+
+<table style="width: 100%" border="1">
+    <tbody>
+        <tr>
+            <td colspan="2" rowspan="3" style="width:50%">
+                <p><strong>Afluex Agency</strong></p>
+                <p>B-302, Silver Line Apartment, Faizabad Road, Chinhat, Lucknow - 226028</p>
+                <p><strong>Branch(s):</strong></p>
+            </td>
+            <td colspan="4" style="width:25%">
+                <p>Invoice No: @ViewBag.InvoiceNumber</p>
+            </td>
+            <td colspan="3" style="width:25%">
+                <p>Dated: </p>
+                <p><strong></strong></p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <p>Delivery Note:</p>
+            </td>
+            <td colspan="3">
+                <p>Mode/Terms of Payment:</p>
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <p>Suppliers Ref.</p>
+                <p>&nbsp;</p>
+                <p><strong>04/2018-19</strong></p>
+            </td>
+            <td colspan="3">
+                <p>Other Reference(s)</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" rowspan="4">
+                <p>Buyer:</p>
+                <p><strong>@Model.CustomerName</strong><strong>LTD.</strong></p>
+                <p>Plot No-2 Mohalla Parade, Station</p>
+                <p>Road, Sitapur.(U.P.)-261001 |</p>
+                <p>Tel: 05862-245949</p>
+                <p>GSTIN: 09AAACL3146K1ZF</p>
+            </td>
+            <td colspan="4">
+                <p>Buyers Order</p>
+                <p>No.:</p>
+                <p>&nbsp;</p>
+            </td>
+            <td colspan="3">
+                <p>Dated:</p>
+                <p><strong>&nbsp;</strong></p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <p>Dispatch Document No.</p>
+            </td>
+            <td colspan="3">
+                <p>Dated</p>
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <p>Dispatch Through</p>
+            </td>
+            <td colspan="3">
+                <p>Destination:</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7">
+                <p>Terms Of Delivery</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td rowspan="2">
+                <p>Sl</p>
+                <p>No.</p>
+            </td>
+            <td rowspan="2">
+                <p>&nbsp;</p>
+                <p>Descriptions of Goods</p>
+            </td>
+            <td colspan="2">
+                <p>&nbsp;</p>
+                <p>Size</p>
+            </td>
+            <td rowspan="2">
+                <p>&nbsp;</p>
+                <p>Qty.</p>
+            </td>
+            <td colspan="2" rowspan="2">
+                <p>&nbsp;</p>
+                <p>Total Area</p>
+            </td>
+            <td rowspan="2">
+                <p>&nbsp;</p>
+                <p>Rate</p>
+                <p>Sqft/Each</p>
+            </td>
+            <td rowspan="2">
+                <p>&nbsp;</p>
+                <p>Amount</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>&nbsp;</p>
+                <p>W</p>
+            </td>
+            <td>
+                <p>&nbsp;</p>
+                <p>H</p>
+            </td>
+        </tr>
+        @if (Model != null)
+        {
+            if (Model.lstsaleorder != null)
+            {
+                var j = 1;
+                foreach (var item in Model.lstsaleorder)
+                {
+                    <tr>
+                        <td>
+                            <p>@j</p>
+                        </td>
+                        <td>
+                            <p>@item.SiteName</p>
+                        </td>
+                        <td>
+                            <p>@item.Width</p>
+                        </td>
+                        <td>
+                            <p>@item.Height</p>
+                        </td>
+                        <td>
+                            <p>@item.Quantity</p>
+                        </td>
+                        <td colspan="2">
+                            <p>@item.Area</p>
+                        </td>
+                        <td>
+                            <p>@item.Rate</p>
+                        </td>
+                        <td>
+                            <p>@item.TotalAmount</p>
+                        </td>
+                    </tr>
+                    j++;
+                }
+            }
+        }
+
+        <tr>
+            <td rowspan="2" width="51">
+                <p>&nbsp;</p>
+            </td>
+            <td rowspan="2" width="407">
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p><strong>&nbsp;</strong></p>
+                <p><strong>IGST (in Rupees)</strong></p>
+                <p><strong>CGST (in Rupees)</strong></p>
+                <p><strong>SGST (in Rupees)</strong></p>
+                <p><strong>&nbsp;</strong></p>
+                <p><strong>&nbsp;</strong></p>
+            </td>
+            <td rowspan="2" width="62">
+                <p>&nbsp;</p>
+            </td>
+            <td rowspan="2" width="58">
+                <p>&nbsp;</p>
+            </td>
+            <td rowspan="2" width="55">
+                <p>&nbsp;</p>
+            </td>
+            <td colspan="2" rowspan="2" width="83">
+                <p>&nbsp;</p>
+            </td>
+            <td rowspan="2" width="97">
+                <p>&nbsp;</p>
+            </td>
+            <td width="94">
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p><strong>@ViewBag.FinalAmount</strong></p>
+            </td>
+        </tr>
+        <tr>
+            <td width="94">
+                <p><strong>------------</strong></p>
+                <p><strong>@ViewBag.IGST</strong></p>
+                <p><strong>@ViewBag.CGST</strong></p>
+                <p><strong>@ViewBag.SGST</strong></p>
+                <p>&nbsp;</p>
+                <p><strong>&nbsp;</strong></p>
+            </td>
+        </tr>
+        <tr>
+            <td width="51">
+                <p>&nbsp;</p>
+            </td>
+            <td width="407">
+                <p><strong>Total</strong></p>
+            </td>
+            <td width="62">
+                <p>&nbsp;</p>
+            </td>
+            <td width="58">
+                <p>&nbsp;</p>
+            </td>
+            <td width="55">
+                <p>&nbsp;</p>
+            </td>
+            <td colspan="2" width="83">
+                <p>&nbsp;</p>
+            </td>
+            <td width="97">
+                <p>&nbsp;</p>
+            </td>
+            <td width="94">
+                <p><strong>@ViewBag.FinalAmountGST</strong></p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9">
+                <p>Amount Chargeable (in words)<em>E&amp;O.E</em>.</p>
+                <p><strong>INR. </strong></p>
+                <p><strong>&nbsp;</strong></p>
+            </td>
+        </tr>
+    </tbody>
+</table>

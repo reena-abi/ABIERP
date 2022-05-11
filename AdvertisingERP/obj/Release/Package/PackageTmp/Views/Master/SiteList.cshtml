@@ -1,0 +1,280 @@
+﻿@model AdvertisingERP.Models.Master
+
+@{
+    ViewBag.Title = "SiteList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="page-content">
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            @*<div class="page-wrapper">*@
+
+            <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+                <div class="breadcrumb-title pe-3">Master</div>
+                <div class="ps-3">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0 p-0">
+                            <li class="breadcrumb-item">
+                                <a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">Site List</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="ms-auto">
+                    <div class="btn-group">
+                        <a href="/Master/SiteMaster" class="btn btn-light list-button">Add Site</a>
+
+                    </div>
+                </div>
+            </div>
+            <hr />
+
+            <form action="/Master/SiteList" enctype="multipart/form-data" id="signupForm" method="post">
+                @*<div class="alert alert-success" style="display:none">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span> </button>
+                    <h5 class="text-success"><i class="fa fa-check-circle"></i></h5>
+
+                </div>*@
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            @if (@TempData["SiteDelete"] != null)
+                            {
+                                <div class="alert border-0 alert-dismissible fade show py-2">
+                                    <div class="d-flex align-items-center">
+                                        <div class="font-35 text-white">
+                                            <i class="bx bxs-check-circle" style="color:green"></i>
+                                        </div>
+                                        <div class="ms-3">
+                                            <div class="text-white">@TempData["SiteDelete"]!</div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+
+                            }
+                            @*@if (@TempData["SiteError"] != null)
+                            {
+                                <div class="alert border-0 alert-dismissible fade show py-2">
+                                    <div class="d-flex align-items-center">
+                                        <div class="font-35 text-white">
+                                            <i class="bx bxs-check-circle" style="color:green"></i>
+                                        </div>
+                                        <div class="ms-3">
+                                            <div class="text-white">@TempData["SiteError"]!</div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            }*@
+
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <div class="col-md-12">
+                                                <label class="control-label">Vendor </label>
+                                                <select class="form-select" id="VendorID" name="VendorID">
+                                                    <option value="0">Select</option>
+                                                    <option value="2">Suraj Media Solution-Unnao</option>
+                                                    <option value="3">Mediascope Advertising-Kalyanpur</option>
+                                                    <option value="6">Metro Printing &amp; Outdoor-Ballia</option>
+                                                    <option value="7">Vision Advertisers-Sitapur</option>
+                                                    <option value="8">Aziz Art-Basti</option>
+                                                    <option value="12">Shri Ram Communication-Ghazipur</option>
+                                                    <option value="13">Media Trade wings-Shanti Nagar</option>
+                                                    <option value="14">SELVEL MEDIA SERVICES PRIVATE LIMITED-Lucknow</option>
+                                                    <option value="15">Divyanshi Creations-Lucknow</option>
+                                                    <option value="16">BELIEF MEDIA SOLUTIONS -Sitapur</option>
+                                                    <option value="17">YASH ADVERTISING-Varanasi</option>
+                                                    <option value="21">Saffron Communication Pvt Ltd-Lucknow</option>
+                                                    <option value="31">test34-Lucknow</option>
+                                                    <option value="32">vendor Pan Img-Lucknow</option>
+                                                    <option value="9">Prakash Publicity-NA</option>
+                                                    <option value="33">test vendor Session-Lucknow</option>
+                                                    <option value="39">Balaji Media -Jaunpur</option>
+                                                    <option value="43">rama Flex Printing-Sadar</option>
+                                                    <option value="4">Ruby Printing-Faizabad</option>
+                                                    <option value="5">SPPL Star Publicity Private Limited-Lucknow</option>
+                                                    <option value="18">CHHAGAN LAL SANCHETI-Dhanbad</option>
+                                                    <option value="25">JMD Enterprises-Lucknow</option>
+                                                    <option value="10">Amar Ujala Publications Limited-Noida</option>
+                                                    <option value="11"> Be Global Adworld -Gorakhpur</option>
+                                                    <option value="19">TRIMURTI PUBLICITY AND MARKETING PVT.LTD.-Phulwari</option>
+                                                    <option value="20">AMAN ENTERPRISES-Lucknow</option>
+                                                    <option value="36">Galaxy Advertisers -Hardwar</option>
+                                                    <option value="42">The Concepts Advertising &amp; Marketing -Nawabganj </option>
+                                                    <option value="44">s.r. media Works-Basti</option>
+                                                    <option value="46">Rajesh Mangilal Verma -Lucknow</option>
+                                                    <option value="35">AFLUEX MULTISERVICES LLP-Lucknow</option>
+                                                    <option value="40">Surendra Advertising-NA</option>
+                                                    <option value="41">Surya Outdoor Advertising -Chandausi</option>
+                                                    <option value="45">maurya Advertising Service-Sagari</option>
+                                                    <option value="48">muskurado New delhi-New Delhi</option>
+                                                    <option value="37">Aanya Media Solution -Chandauli</option>
+                                                    <option value="38"> A D Media Publicity -Dehradun</option>
+                                                    <option value="47">simran Ad-Dhanbad</option>
+                                                    <option value="49">GOODWILL PLASTIC SIGN-New Delhi</option>
+                                                    <option value="50">M/s Srinagar Enterprises-Lucknow</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <div class="col-md-12">
+                                                <label class="control-label">Site Name </label>
+                                                <input Placeholder="Site Name" class="form-control" id="SiteName" name="SiteName" type="text" value="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <div class="col-md-12">
+                                                <label class="control-label">Media Vehicle</label>
+                                                <select class="form-select" id="MediaVehicleID" name="MediaVehicleID">
+                                                    <option value="0">Select</option>
+                                                    <option value="18">Backlit</option>
+                                                    <option value="1">BillBoard</option>
+                                                    <option value="11">Black-Back</option>
+                                                    <option value="4">Bus Branding</option>
+                                                    <option value="7">Bus-Que-Shelters</option>
+                                                    <option value="6">Cinema On-Screen </option>
+                                                    <option value="17">Eco-Solvent</option>
+                                                    <option value="9">Media Vehicle 2</option>
+                                                    <option value="12">Normal (With Nefa)</option>
+                                                    <option value="13">Normal (Without Nefa)</option>
+                                                    <option value="5">Pole Kiosk</option>
+                                                    <option value="16">Solvent</option>
+                                                    <option value="15">Star Black-Back</option>
+                                                    <option value="14">Star Normal</option>
+                                                    <option value="3">Traffic Light</option>
+                                                    <option value="2">Unipole</option>
+                                                    <option value="10">WallWrap</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <div class="col-md-12">
+                                                <label class="control-label">Media Type </label>
+                                                <select class="form-select" id="MediaTypeID" name="MediaTypeID">
+                                                    <option value="0">Select</option>
+                                                    <option value="4">BL (Back-LIT)</option>
+                                                    <option value="7">Black Back</option>
+                                                    <option value="3">FL (Front-LIT)</option>
+                                                    <option value="2">NL (Non-LIT)</option>
+                                                    <option value="8">Pencil</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <div class="col-md-12">
+                                                <input type="submit" value="Get Details" class="btn btn-light mt-4" name="GetDetails" onclick="return getdeatils();" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                </div>
+                                <div class="table-responsive mt-5">
+                                    <table id="example2" class="table table-striped table-bordered display">
+                                        <thead>
+                                            <tr>
+                                                <th>Site Name</th>
+                                                <th>Media Vehicle</th>
+                                                <th>Media Type</th>
+                                                <th>Pincode</th>
+                                                <th>City</th>
+                                                <th>Facing</th>
+                                                <th>Rational</th>
+                                                <th>Side</th>
+                                                <th>Qty</th>
+                                                <th>Height</th>
+                                                <th>Width</th>
+                                                <th>Area</th>
+                                                <th>Cart Rate</th>
+                                                <th>Site Owner</th>
+                                                <th>Site Image</th>
+                                                <th>Action</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (Model != null)
+                                            {
+                                                if (Model.lstSites != null)
+                                                {
+                                                    foreach (var item in Model.lstSites)
+                                                    {
+                                                        <tr>
+                                                            <td>@item.SiteName</td>
+                                                            <td>@item.MediaVehicleName</td>
+                                                            <td>@item.MediaTypeName</td>
+                                                            <td>@item.Pincode</td>
+                                                            <td>@item.City</td>
+                                                            <td>@item.Facing</td>
+                                                            <td>@item.Rational</td>
+                                                            <td>@item.Side</td>
+                                                            <td>@item.Quantity</td>
+                                                            <td>@item.Height</td>
+                                                            <td>@item.Width</td>
+                                                            <td>@item.Area</td>
+                                                            <td>@item.CartRate</td>
+                                                            <td>@item.SiteOwner</td>
+                                                            <td>@item.SiteImage</td>
+                                                            <td>
+                                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                                    <button type="button" class="btn btn-light">
+                                                                        <a href="/Master/SiteMaster?SiteId=@item.SiteID" class="text-warning" title="Edit"><i class="bx bx-pencil me-0"></i></a>
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-light">
+                                                                        <a href="/Master/DeleteSite?SiteId=@item.SiteID" onclick="return confirm('Do you want to delete this Site ?');" class="label label-danger"><i class="bx bx-trash-alt me-0"></i></a>
+                                                                    </button>
+
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                }
+                                            }
+
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Site Name</th>
+                                                <th>Media Vehicle</th>
+                                                <th>Media Type</th>
+                                                <th>Pincode</th>
+                                                <th>City</th>
+                                                <th>Facing</th>
+                                                <th>Rational</th>
+                                                <th>Side</th>
+                                                <th>Qty</th>
+                                                <th>Height</th>
+                                                <th>Width</th>
+                                                <th>Area</th>
+                                                <th>CartRate</th>
+                                                <th>Site Image</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            @*</div>*@
+        </div>
+    </div>
+</div>
+
+
+
+

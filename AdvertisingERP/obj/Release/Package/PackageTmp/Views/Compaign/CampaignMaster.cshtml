@@ -1,0 +1,197 @@
+﻿@model AdvertisingERP.Models.Compaign
+
+@{
+    ViewBag.Title = "CampaignMaster";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+
+}
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+@using (Html.BeginForm("CampaignMaster", "Compaign", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+{
+
+    <div class="page-content">
+        <!--breadcrumb-->
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+            <div class="breadcrumb-title pe-3">Compaign</div>
+            <div class="ps-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 p-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Campaign Master</li>
+                    </ol>
+                </nav>
+            </div>
+        
+            <div class="ms-auto">
+                <div class="btn-group">
+                    <a href="/Compaign/CompaignList" class="btn btn-light list-button">Back To List</a>
+                </div>
+            </div>
+        </div>
+        <hr />
+
+        <div class="card">
+            @if (@TempData["CompaignError"] != null)
+            {
+                <div class="alert border-0 alert-dismissible fade show py-2"style="display: @ViewBag.errormsg;">
+                    <div class="d-flex align-items-center">
+                        <div class="font-35 text-white">
+                            <i class="bx bxs-check-circle" style="color:green"></i>
+                        </div>
+                        <div class="ms-3">
+                            <div class="text-white">@TempData["CompaignError"]!</div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+            }
+            <div class="card-body">
+                <div class="p-4 border rounded">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label for="input-1">Customer Name<span style="color: red;">*</span></label>
+                            @Html.TextBoxFor(m => m.CustomerName, new { @class = "form-control", @Placeholder = "Customer Name" }) @Html.HiddenFor(m => m.CustomerId)
+                        </div>
+                        <div class="col-md-4">
+                            <label for="input-1">Creative Name </label>
+                            @Html.TextBoxFor(m => m.CreativeName, new { @class = "form-control", @Placeholder = "Creative Name", @onchange = "return endDateChange();"})
+                        </div>
+                        <div class="col-md-4">
+                            <label for="input-1">Start Date <span style="color: red;">*</span></label> @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control", @Placeholder = "Start Date", @onchange = "return endDateChange();",@readonly=true })
+                        </div>
+                        <div class="col-md-4">
+                            <label for="input-1">End Date <span style="color: red;">*</span></label>
+                            @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control", @Placeholder = "End Date", @onchange = "return endDateChange();", @readonly = true })
+                        </div>
+                        <div class="col-md-4">
+                            <label for="input-1">Campaign Description <span style="color: red;">*</span></label>
+                            @Html.TextAreaFor(m => m.Decription, new { @class = "form-control", @Placeholder = "Campaign Description" })
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-12">
+                                    @if (Model.CompaignId != null)
+                                    {
+                                        if (Model.SOMappedStatus == "0")
+                                        {
+                                            if (Model.CompaignId != null)
+                                            {
+                                                <input type="submit" value="Update Campaign" class="btn btn-light list-button" name="UpdateCompaign" onclick="return validateCompaign();" />
+                                            }
+                                            else
+                                            {
+                                                <input type="submit" value="Save Campaign" class="btn btn-light list-button" name="SaveCompaign" onclick="return validateCompaign();" />
+                                                <a href="/Compaign/CampaignMaster" class="btn btn-dark">Reset</a>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <div class="alert alert-info">
+                                                This Campaign is mapped with Sale Order; so it cannot be Updated.
+                                            </div>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <input type="submit" value="Save Campaign" class="btn btn-light list-button" name="SaveCompaign" onclick="return validateCompaign();" />
+                                        <a href="/Compaign/CampaignMaster" class="btn btn-dark">Reset</a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script>
+    jQuery('.mydatepicker, #StartDate, #EndDate, .input-group.date').datepicker(
+        {
+            dateFormat: 'dd/mm/yy',
+            changeYear: true,
+            changeMonth: true
+
+        });
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        var cityuse = [];
+            debugger
+            $.ajax({
+                url: "/Compaign/GetAllCustomer",
+                type: "Post",
+                success: function (response) {
+                    if (response != null) {
+                        $(response).each(function (index, item) {
+                            cityuse.push(item.CompanyName + "(" + item.CustomerCode + ")");
+                        });
+                        $("#CustomerName").autocomplete({
+                            source: cityuse,
+                            select: function (event, ui) {
+                                var str = ui.item.label;
+                                var afterComma = str.substr(str.indexOf("(") + 1);
+                                var citycode = afterComma.substr(0, afterComma.length - 1);
+                                $("#CustomerId").val(citycode);
+                            },
+                        });
+                    } else {
+                    }
+                },
+                error: function () {
+                    alert("Some Thing wrong!");
+                },
+            });
+
+            $("#divload").css({ display: "none" });
+        });
+
+        function validateCompaign() {
+            $(".errortext").removeClass("errortext");
+            if ($("#CustomerName").val() == "") {
+                $("#CustomerName").addClass("errortext");
+                $("#CustomerName").focus();
+                return false;
+            }
+            if ($("#CreativeName").val() == "") {
+                $("#CreativeName").addClass("errortext");
+                $("#CreativeName").focus();
+                return false;
+            }
+
+            if ($("#StartDate").val() == "") {
+                $("#StartDate").addClass("errortext");
+                $("#StartDate").focus();
+                return false;
+            }
+            if ($("#EndDate").val() == "") {
+                $("#EndDate").addClass("errortext");
+                $("#EndDate").focus();
+                return false;
+            }
+            if ($("#Decription").val() == "") {
+                $("#Decription").addClass("errortext");
+                $("#Decription").focus();
+                return false;
+            }
+            $("#divload").css({ display: "" });
+        }
+
+        function endDateChange() {
+            $("#Decription").val($("#CreativeName").val() + " (" + $("#StartDate").val() + " to " + $("#EndDate").val() + ")");
+        }
+    
+</script>
+

@@ -1,0 +1,359 @@
+﻿@model AdvertisingERP.Models.Vendor
+
+@{
+    ViewBag.Title = "AddVendor";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("AddVendor", "Vendor", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+{
+    <div class="page-content">
+        <!--breadcrumb-->
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+            <div class="breadcrumb-title pe-3">Vendor</div>
+            <div class="ps-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 p-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Add Vendor</li>
+                    </ol>
+                </nav>
+            </div>
+       
+            <div class="ms-auto">
+                <div class="btn-group">
+                    <a href="/Vendor/VendorList" class="btn btn-light list-button">Back To List</a>
+                </div>
+            </div>
+        </div>
+        <hr />
+ 
+            <div class="card">
+                @if (@TempData["VendorError"] != null)
+                {
+                    <div class="alert border-0 alert-dismissible fade show py-2" style="display: @ViewBag.errormsg;">
+                        <div class="d-flex align-items-center">
+                            <div class="font-35 text-white">
+                                <i class="bx bxs-check-circle" style="color:green"></i>
+                            </div>
+                            <div class="ms-3">
+                                <div class="text-white">@TempData["VendorError"]!</div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+                <div class="card-body">
+                    <div class="p-4 border rounded">
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <label class="input-1">Vendor Name<span style="color: red;">*</span></label>
+                                 @Html.TextBoxFor(m => m.VendorName, new { @class = "form-control", @Placeholder = "Vendor Name", @style = "text-transform:capitalize" }) @Html.HiddenFor(m => m.VendorCode)
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mt-2">
+                            <div class="col-md-4">
+                                <label for="input-1">Nature Of Business </label>
+                                @Html.DropDownListFor(m => m.ServiceTypeName, new SelectList(ViewBag.ddlServiceType, "Value", "Text"), new { @class = "form-select", @onchange = "return ServiceTypeChange()" }) @Html.HiddenFor(m => m.ServiceTypeID)
+
+                                <a href="javascript:void(0)" onclick="return clearServices();" class="btn btn-light list-button mt-3"><i class="bx bx-refresh" aria-hidden="true"></i></a>
+                            </div>
+
+                            <div class="col-md-4 ">
+                                <label for="input-1">Mobile No <span style="color: red;">*</span></label>
+
+                                @Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control ", @Placeholder = "Mobile No", onkeypress = "return isNumber(event);", @maxlength = "10" })
+                            </div>
+
+                            <div class="col-md-4 ">
+                                <label for="input-1">Email <span style="color: red;">*</span></label>
+
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control ", @Placeholder = "Email" })
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <input type="text" id="lblServiceDisplay" class="form-control" , readonly="readonly" />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row g-3">
+                            <div class="col-md-4 ">
+                                <label for="input-1">Address <span style="color: red;">*</span></label>
+
+                                @Html.TextBoxFor(m => m.Address, new { @class = "form-control ", @Placeholder = "Address" })
+                            </div>
+
+                            <div class="col-md-4 ">
+                                <label for="input-1"> Pincode <span style="color: red;">*</span> </label>
+
+                                @Html.TextBoxFor(m => m.Pincode, new { @class = "form-control", @Placeholder = "Pincode", @onchange = "getstatecity();", onkeypress = "return isNumber(event);", @maxlength = "6" })
+                            </div>
+                            <div class="col-md-4 ">
+                                <label for="input-1">City <span style="color: red;">*</span></label>
+
+                                @Html.TextBoxFor(m => m.City, new { @class = "form-control ", @Placeholder = "City", @readonly = "true" })
+                            </div>
+                            <div class="col-md-4 ">
+                                <label for="input-1">State <span style="color: red;">*</span></label>
+
+                                @Html.TextBoxFor(m => m.StateName, new { @class = "form-control ", @Placeholder = "State", @readonly = "true" })
+                            </div>
+
+                            <div class="col-md-4 ">
+                                <label for="input-1">Bank Name </label>
+
+                                @Html.TextBoxFor(m => m.BankName, new { @class = "form-control ", @Placeholder = "Bank Name", @style = "text-transform:capitalize" }) @Html.HiddenFor(m => m.BankNameSplit)
+                            </div>
+                            <div class="col-md-4 ">
+                                <label for="input-1">Account No </label>
+
+                                @Html.TextBoxFor(m => m.AccountNo, new { @class = "form-control ", @Placeholder = "Account No", onkeypress = "return isNumber(event);" })
+                            </div>
+                            <div class="col-md-4 ">
+                                <label for="input-1">IFSC Code </label>
+
+                                @Html.TextBoxFor(m => m.IFSCCode, new { @class = "form-control ", @Placeholder = "IFSC Code", @style = "text-transform:uppercase" })
+                            </div>
+
+                            <div class="col-md-4 ">
+                                <label for="input-1">Concern Person </label>
+
+                                @Html.TextBoxFor(m => m.ConcernPerson, new { @class = "form-control ", @Placeholder = "Concern Person", @style = "text-transform:capitalize" })
+                            </div>
+                            <div class="col-md-4 ">
+                                <label for="input-1">Concern Person 1 Designation</label>
+
+                                @Html.TextBoxFor(m => m.ConcerPerson1Designation, new { @class = "form-control ", @Placeholder = "Concern Person 2 Designation" })
+                            </div>
+                            <div class="col-md-4 ">
+                                <label for="input-1">Concern Person Contact </label>
+
+                                @Html.TextBoxFor(m => m.ConcerPersonContact, new { @class = "form-control ", @Placeholder = "Concern Person Contact", onkeypress = "return isNumber(event);", @maxlength = "10" })
+                            </div>
+                            <div class="col-md-4 ">
+                                <label for="input-1">Concern Person Email </label>
+
+                                @Html.TextBoxFor(m => m.ConcerPersonEmail, new { @class = "form-control ", @Placeholder = "Concern Person Email" })
+                            </div>
+                            <div class="col-md-4 ">
+                                <label for="input-1">Concern Person 2</label>
+
+                                @Html.TextBoxFor(m => m.ConcernPerson2, new { @class = "form-control ", @Placeholder = "Concern Person", @style = "text-transform:capitalize" })
+                            </div>
+                            <div class="col-md-4 ">
+                                <label for="input-1">Concern Person 2 Designation</label>
+
+                                @Html.TextBoxFor(m => m.ConcerPerson2Designation, new { @class = "form-control ", @Placeholder = "Concern Person 2 Designation" })
+                            </div>
+                            <div class="col-md-4 ">
+                                <label for="input-1">Concern Person Email </label>
+
+                                @Html.TextBoxFor(m => m.ConcerPersonEmail2, new { @class = "form-control ", @Placeholder = "Concern Person 2 Email" })
+                            </div>
+                            <div class="col-md-4 ">
+                                <label for="input-1">Concern Person Contact </label>
+
+                                @Html.TextBoxFor(m => m.ConcerPersonContact2, new { @class = "form-control ", @Placeholder = "Concern Person 2 Contact", onkeypress = "return isNumber(event);", @maxlength = "10" })
+                            </div>
+                            <div class="col-md-4 ">
+                                <label for="input-1">GSTNo</label>
+
+                                @Html.TextBoxFor(m => m.GSTNO, new { @class = "form-control ", @Placeholder = "GSTNO" })
+                            </div>
+
+                            <div class="col-md-4 ">
+                                <label for="input-1">PAN Number </label>
+
+                                @Html.TextBoxFor(m => m.PANNO, new { @class = "form-control ", @Placeholder = "PAN Number", @style = "text-transform:uppercase", @maxlength = "10" })
+                            </div>
+                            <div class="col-md-4 ">
+                                <label for="input-1">PAN Image </label>
+
+                                <input type="file" name="postedFile" onchange="readURL1(this)" />
+                                <br />
+                                <img id="imgPAN" class="fileinput-preview thumbnail" style="width: 150px; height: 100px; margin-top:20px;" src="@Model.PanImage" />
+                            </div>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-4 ">
+                                <div class="row">
+                                    <div class="col-md-offset-3 col-md-9">
+                                        @if (Model.VendorId != null)
+                                        {
+                                            <input type="submit" value="Update Vendor" class="btn btn-light list-button" name="UpdateVendor" onclick="return validateVendor();" />
+                                        }
+                                        else
+                                        {
+                                            <input type="submit" value="Save Vendor" class="btn btn-light list-button" name="SaveVendor" onclick="return validateVendor();" />
+
+                                            <a href="/Vendor/AddVendor" class="btn btn-dark">Reset</a>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 "></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        @Html.HiddenFor(m => m.Result)
+    </div>
+
+}
+
+<script>
+    $(document).ready(function () {
+        $("#divload").css({ display: "" });
+        var cityuse = [];
+        $.ajax({
+            url: "/Vendor/GetAllBanks",
+            type: "Post",
+            success: function (response) {
+                if (response != null) {
+                    $(response).each(function (index, item) {
+                        // GETTING ERROR HERE
+                        cityuse.push(item.BankName + "(" + item.IFSCCode + ")");
+                        $("#divload").css({ display: "none" });
+                    });
+                    $("#BankName").autocomplete({
+                        source: cityuse,
+                        select: function (event, ui) {
+                            var str = ui.item.label;
+                            var afterComma = str.substr(str.indexOf("(") + 1);
+                            var citycode = afterComma.substr(0, afterComma.length - 1);
+                            var bankname = str.split("(");
+                            $("#IFSCCode").val(citycode);
+                            $("#BankNameSplit").val(bankname[0]);
+                            //alert(bankname[0]);
+                        },
+                    });
+                } else {
+                }
+            },
+            error: function () {
+                alert("Some Thing wrong!");
+            },
+        });
+        $("#divload").css({ display: "none" });
+    });
+
+    function readURL1(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $("#imgPAN").attr("src", e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $(document).ready(function () {
+        //alert($('#Result').val());
+        document.getElementById("lblServiceDisplay").value = $("#Result").val();
+    });
+
+    function clearServices() {
+        document.getElementById("lblServiceDisplay").value = "";
+        $("#ServiceTypeID").val("");
+    }
+
+    function ServiceTypeChange() {
+        var serviceNameCurrent = $("#ServiceTypeName").find(":selected").text();
+        var serviceIDCurrent = $("#ServiceTypeName").val();
+
+        var serviceNameOld = document.getElementById("lblServiceDisplay").value;
+        var serviceIDOld = $("#ServiceTypeID").val();
+
+        var idArray = serviceIDOld.split(",");
+        for (var i = 0; i < idArray.length; i++) {
+            if (idArray[i] == serviceIDCurrent) {
+                //alert(idArray[i]);
+                return false;
+            }
+        }
+
+        if (serviceNameOld == "") {
+            $("#ServiceTypeID").val(serviceIDCurrent);
+            document.getElementById("lblServiceDisplay").value = serviceNameCurrent;
+        } else {
+            $("#ServiceTypeID").val(serviceIDOld + "," + serviceIDCurrent);
+            document.getElementById("lblServiceDisplay").value = serviceNameOld + ", " + serviceNameCurrent;
+        }
+        //alert("IDs : " + $('#ServiceTypeID').val());
+    }
+
+    function isNumber(evt) {
+        var charCode = evt.which ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57)) return false;
+
+        return true;
+    }
+
+    function validateVendor() {
+        $(".errortext").removeClass("errortext");
+        if ($("#VendorName").val() == "") {
+            $("#VendorName").addClass("errortext");
+            $("#VendorName").focus();
+            return false;
+        }
+        if ($("#ServiceTypeName").val() == "0") {
+            $("#ServiceTypeName").addClass("errortext");
+            $("#ServiceTypeName").focus();
+            return false;
+        }
+        if ($("#MobileNo").val() == "") {
+            $("#MobileNo").addClass("errortext");
+            $("#MobileNo").focus();
+            return false;
+        }
+
+        if ($("#Email").val() == "") {
+            $("#Email").addClass("errortext");
+            $("#Email").focus();
+            return false;
+        }
+        if ($("#Address").val() == "") {
+            $("#Address").addClass("errortext");
+            $("#Address").focus();
+            return false;
+        }
+        if ($("#Pincode").val() == "") {
+            $("#Pincode").addClass("errortext");
+            $("#Pincode").focus();
+            return false;
+        }
+
+        $("#divload").css({ display: "" });
+    }
+
+    function getstatecity() {
+        $("#divload").css({ display: "" });
+        $.ajax({
+            url: "/Master/GetStateCity",
+            Type: "Get",
+            DataType: "JSON",
+            data: { PinCode: $("#Pincode").val() },
+            success: function (data) {
+                if (data.Result == "1") {
+                    $("#StateName").val(data.StateName);
+                    $("#City").val(data.City);
+                    $("#divload").css({ display: "none" });
+                } else {
+                    $("#StateName").val("");
+                    $("#City").val("");
+                    $("#PinCode").val("");
+                    alert("Invalid PinCode");
+                    $("#PinCode").focus();
+                    $("#divload").css({ display: "none" });
+                }
+            },
+        });
+    }
+</script>

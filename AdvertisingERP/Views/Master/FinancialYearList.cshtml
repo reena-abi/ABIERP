@@ -1,0 +1,122 @@
+﻿@model AdvertisingERP.Models.Master
+
+@{
+    ViewBag.Title = "FinancialYearList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@using (Html.BeginForm("FinancialYearList", "Master", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+{
+    <div class="page-content">
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+                    <div class="breadcrumb-title pe-3">Master</div>
+                    <div class="ps-3">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb mb-0 p-0">
+                                <li class="breadcrumb-item">
+                                    <a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">Financial Year List</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="ms-auto">
+                        <div class="btn-group">
+                            <a href="/Master/FinancialYear" class="btn btn-light list-button">Add Financial Year</a>
+
+                        </div>
+                    </div>
+                </div>
+                <hr />
+               
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+@*@if (@TempData["FinancialYearDelete"] != null)
+{
+    <div class="alert border-0 alert-dismissible fade show py-2">
+        <div class="d-flex align-items-center">
+            <div class="font-35 text-white">
+                <i class="bx bxs-check-circle" style="color:green"></i>
+            </div>
+            <div class="ms-3">
+                <div class="text-white">@TempData["FinancialYearDelete"]!</div>
+            </div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+}
+    @if (@TempData["SiteError"] != null)
+        {
+            <div class="alert border-0 alert-dismissible fade show py-2">
+                <div class="d-flex align-items-center">
+                    <div class="font-35 text-white">
+                        <i class="bx bxs-check-circle" style="color:green"></i>
+                    </div>
+                    <div class="ms-3">
+                        <div class="text-white">@TempData["SiteError"]!</div>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }*@
+
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="example2" class="table table-striped table-bordered display">
+                                        <thead>
+                                            <tr>
+                                                <th>Financial Year</th>
+                                                <th>Action</th>
+                                                @*<th>Status</th>*@
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (Model != null)
+                                            {
+                                                if (Model.lstFinancialYear != null)
+                                                {
+                                                    foreach (var item in Model.lstFinancialYear)
+                                                    {
+                                                        <tr>
+                                                            <td>@item.FinancialYearName</td>
+                                                            <td>
+                                                                @if (item.FinancialYearStatus == "Active")
+                                                                {
+                                                                    <label class="label label-danger">Active</label>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <a href="/Master/ActivateFinancialYear?fid=@item.FinancialYearID" class="label label-primary">Activate</a>
+                                                                }
+                                                            </td>
+                                                            @*<td><a href="/Master/DeleteFinancialYear?fid=@item.FinancialYearID" onclick="return confirm('Do you want to delete this Financial Year ?');" class="label label-danger"><i class="bx bx-trash"></i></a>
+                                                            </td>*@
+                                                        </tr>
+                                                    }
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        }
+       
+        <script>
+
+            $(document).ready(function () {
+                $("#divload").css({ 'display': 'none' });
+            });
+            function getdeatils() {
+                $("#divload").css({ 'display': '' });
+            }
+        </script>

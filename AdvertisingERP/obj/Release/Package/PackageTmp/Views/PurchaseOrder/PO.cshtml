@@ -1,0 +1,492 @@
+﻿@model AdvertisingERP.Models.PO
+
+@{
+    ViewBag.Title = "PO";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+@using (Html.BeginForm("PO", "PurchaseOrder", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+{
+    <div class="page-content">
+        <!--breadcrumb-->
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+            <div class="breadcrumb-title pe-3">Purchase Order</div>
+            <div class="ps-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 p-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Purchase Order Details</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="ms-auto">
+                <div class="btn-group">
+                    <a href="/PurchaseOrder/POList" class="btn btn-light list-button">Purchase Order List</a>
+                </div>
+            </div>
+        </div>
+        <hr />
+
+        <div class="card">
+            @if (@ViewBag.errormsg != null)
+            {
+                <div class="alert border-0 alert-dismissible fade show py-2" style="display: @ViewBag.errormsg;">
+                    <div class="d-flex align-items-center">
+                        <div class="font-35 text-white">
+                            <i class="bx bxs-check-circle" style="color:green"></i>
+                        </div>
+                        <div class="ms-3">
+                            <div class="text-white">@TempData["PO"]!</div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+            }
+            <div class="card-body">
+                 <div class="row g-3">
+                    <div class="col-md-4 mt-2">
+                         <label class="index-1">Purchase Order No<span style="color: red">*</span> </label>
+                           
+                                @Html.TextBoxFor(m => m.PONumber, new { @class = "form-control", @Placeholder = "Purchase Order No", @readonly = "readonly" })
+                            
+                        
+                    </div>
+                    <div class="col-md-4 mt-2">
+                        
+                            <label class="index-1">PO Date<span style="color: red">*</span></label>
+                           
+                                @Html.TextBoxFor(m => m.PODate, new { @class = "form-control datepicker", @Placeholder = "Order Date" })
+                           
+                       
+                    </div>
+                    <div class="col-md-4 mt-2">
+                       
+                            <label class="index-1">Payment Terms (No Of Days)<span style="color: red">*</span></label>
+                           
+                                @Html.TextBoxFor(m => m.PaymentTerms, new { @class = "form-control", @placeholder = "Number Of Days", @onkeypress = "return isNumber(event);" })
+                                @*@Html.DropDownListFor(m => m.PaymentTerms, new SelectList(ViewBag.ddlPaymentTerms, "Value", "Text"), new { @class = "form-control" })*@
+                           
+                        
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-md-4 mt-4">
+                      
+                            <label class="index-1">Campaign No <span style="color: red">*</span></label>
+                            
+                                @Html.TextBoxFor(m => m.CampaignNumber, new { @class = "form-control", @Placeholder = "Campaign No", @onchange = "return getsaleorder();" })
+                                @Html.HiddenFor(m => m.CampaignNoID)
+                            
+                        
+                    </div>
+                    <div class="col-md-4 mt-4">
+                      
+                            <label class="index-1">Sale Order No</label>
+                          
+                                @Html.DropDownListFor(m => m.SaleOrderNumber, new SelectList(ViewBag.ddlsaleorderno, "Value", "Text"), new { @class = "form-select", @onchange = "return saleOrderChange();" })
+                                @Html.HiddenFor(m => m.SaleOrderNumberID)
+                           
+                       
+                    </div>
+                    <div class="col-md-4 mt-4">
+                       
+                            <label class="index-1">Operation Executive </label>
+                           
+                                @Html.DropDownListFor(m => m.OperationExecutiveID, new SelectList(ViewBag.ddlOperationExecutive, "Value", "Text"), new { @class = "form-control", @disabled = "disabled" })
+                            
+                    </div>
+                </div>
+                <br />
+                <div class="table-responsive">
+                    <div class="col-md-12">
+                        <table class="table table-striped table-bordered display">
+                            <thead>
+                                <tr>
+                                   
+                                    <th>Site Name</th>
+                                    <th>Service Name</th>
+                                    <th>Vendor Name</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Side</th>
+                                    <th>Quantity</th>
+                                    <th>Height</th>
+                                    <th>Width</th>
+                                    <th>Area</th>
+                                    <th>Rate</th>
+                                    <th>Amount</th>
+                                    <th>CGST</th>
+                                    <th>SGST</th>
+                                    <th>IGST</th>
+                                    <th>TDS</th>
+                                    <th>Discount</th>
+                                    <th>Final Amount</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tblSaleOrderLines"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <br />
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                <input type="submit" value="Save Purchase Order" class="btn btn-light" id="SavePurchaseOrder" name="SavePurchaseOrder" onclick="return validatePO();" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+<script>
+    jQuery('.mydatepicker, #PODate, .input-group.date').datepicker(
+        {
+            dateFormat: 'dd/mm/yy',
+            changeYear: true,
+            changeMonth: true
+        });
+</script>
+
+<script>
+
+    $(document).ready(function () {
+
+        var cityuse = [];
+        var campaignno = [];
+        $.ajax({
+            url: '/PurchaseOrder/GetAllCampians',
+            type: 'Post',
+            success: function (response) {
+                if (response != null) {
+                    $(response).each(function (index, item) {
+                        campaignno.push(item.CreativeName + "(" + item.CampaignNo + ")");
+                    });
+
+                    $('#CampaignNumber').autocomplete({
+                        source: campaignno,
+                        select: function (event, ui) {
+                            var str = ui.item.label;
+                            var afterComma = str.substr(str.indexOf("(") + 1);
+                            var campaignid = afterComma.substr(0, afterComma.length - 1);
+                            $('#CampaignNoID').val(campaignid);
+                        }
+                    })
+                }
+                else {
+
+                }
+            }, error: function () { alert('Some Thing wrong!'); }
+        });
+        $("#divload").css({ 'display': 'none' });
+
+    });
+
+    function getsaleorder() {
+        $("#divload").css({ 'display': '' });
+
+
+        $.ajax({
+            url: "/PurchaseOrder/GetSaleOrder",
+            Type: "Get",
+            DataType: "JSON",
+            data: { CampionNo: $('#CampaignNoID').val() },
+            success: function (data) {
+
+                var j = 1;
+
+                if (data.Result == "1") {
+                    $("#SaleOrderNumber").html("");
+                    $("#SaleOrderNumber").empty();
+                    $("#SaleOrderNumber").append($('<option></option>').val(0).html('Select Sale Order'));
+                    $.each(data.lstsaleoredernolist, function (index, Sectorcount) {
+                        $("#SaleOrderNumber").append(
+                              $('<option></option>').val(Sectorcount.Value).html(Sectorcount.Text));
+                        $("#divload").css({ 'display': 'none' });
+
+                    });
+
+                }
+                else {
+                    $("#SaleOrderNumber").html("");
+                    $("#SaleOrderNumber").empty();
+                    $("#SaleOrderNumber").append($('<option></option>').val(0).html('Select Sale Order'));
+                    $("#divload").css({ 'display': 'none' });
+                }
+
+            }
+
+        });
+
+
+    }
+
+    function saleOrderChange() {
+        $("#divload").css({ 'display': '' });
+        if ($('#SaleOrderNumber').val() == "0") {
+            alert("Invalid Sales Order Number");
+            $('#SaleOrderNumber').val('');
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        $.ajax({
+            url: '/PurchaseOrder/GetSaleOrderDetails',
+            data: { 'saleOrderNo': $('#SaleOrderNumber').val() },
+            type: 'Post',
+            success: function (data) {
+                if (data != null) {
+                    $('#CampaignID').val(data.CampaignID);
+                    $('#CampaignNumber').val(data.CampaignNumber);
+                    $('#SaleOrderNumberID').val(data.SalesOrderNoID);
+                    $('#OperationExecutiveID').val(data.OperationExecutiveID);
+                    var tr = [];
+                    var j = 1;
+
+                    $('#tblSaleOrderLines').empty();
+                    for (var i = 0; i < data.lstsaleorder.length; i++) {
+                        tr.push('<tr>');
+                        tr.push("<td style='width:10px'>" + j + "</td>");
+                        if (data.lstsaleorder[i].PONumber == "Pending") {
+                            tr.push("<td style='width:10px'><input type='checkbox' name='chkPOLine_" + j + "' /></td>");
+                        }
+                        else {
+                            tr.push("<td style='width:10px'><label>" + data.lstsaleorder[i].PONumber + "</label></td>");
+                        }
+                        tr.push("<td><label style='width:130px'>" + data.lstsaleorder[i].SiteName + " </label></td>");
+                        tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].ServiceName + " </label></td>");
+                        tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].VendorName + " </label></td>");
+                        tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].FromDate + " </label></td>");
+                        tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].ToDate + " </label></td>");
+                        tr.push("<td><input type='text' id='txtSide_" + j + "' name='txtSide_" + j + "' value='" + data.lstsaleorder[i].Side + "' onchange='return calculateAmount1(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtQuantity_" + j + "' name='txtQuantity_" + j + "' value='" + data.lstsaleorder[i].Quantity + "' onchange='return calculateAmount1(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtHeight_" + j + "' name='txtHeight_" + j + "' value='" + data.lstsaleorder[i].Height + "' onchange='return calculateArea(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtWidth_" + j + "' name='txtWidth_" + j + "' value='" + data.lstsaleorder[i].Width + "' onchange='return calculateArea(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtArea_" + j + "' name='txtArea_" + j + "' value='" + data.lstsaleorder[i].Area + "' onchange='return calculateAmount1(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtRate_" + j + "' name='txtRate_" + j + "' value='" + data.lstsaleorder[i].Rate + "' onchange='return calculateAmount1(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtTotalAmount_" + j + "' name='txtTotalAmount_" + j + "' value='" + data.lstsaleorder[i].TotalAmount + "'onchange='return calculateRate(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtCGST_" + j + "' name='txtCGST_" + j + "' value='" + data.lstsaleorder[i].CGST + "' onchange='return calculateAmount3(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtSGST_" + j + "' name='txtSGST_" + j + "' value='" + data.lstsaleorder[i].SGST + "' onchange='return calculateAmount3(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtIGST_" + j + "' name='txtIGST_" + j + "' value='" + data.lstsaleorder[i].IGST + "'onchange='return calculateAmount3(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtTDS_" + j + "' name='txtTDS_" + j + "' value='" + data.lstsaleorder[i].TDS + "' onchange='return calculateAmount2(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtDiscount_" + j + "' name='txtDiscount_" + j + "' value='" + data.lstsaleorder[i].Discount + "' onchange='return calculateAmount2(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtFinalAmount_" + j + "' name='txtFinalAmount_" + j + "' value='" + data.lstsaleorder[i].FinalAmount + "' /></td>");
+                        tr.push("<td><input type='text' id='txtDescription_" + j + "' name='txtDescription_" + j + "' value='" + data.lstsaleorder[i].Description + "' /></td>");
+
+                        tr.push("<td style='display:none'><input type='hidden' name='txtSaleOrderDetailsID_" + j + "' value='" + data.lstsaleorder[i].SaleOrderDetailsID + "' /></td>");
+                        tr.push("<td style='display:none'><input type='hidden' name='txtSiteID_" + j + "' value='" + data.lstsaleorder[i].SiteID + "' /></td>");
+                        tr.push("<td style='display:none'><input type='hidden' name='txtServiceID_" + j + "' value='" + data.lstsaleorder[i].ServiceID + "' /></td>");
+                        tr.push("<td style='display:none'><input type='hidden' name='txtVendorID_" + j + "' value='" + data.lstsaleorder[i].VendorID + "' /></td>");
+                        tr.push("<td style='display:none'><input type='hidden' name='txtFromDate_" + j + "' value='" + data.lstsaleorder[i].FromDate + "' /></td>");
+                        tr.push("<td style='display:none'><input type='hidden' name='txtToDate_" + j + "' value='" + data.lstsaleorder[i].ToDate + "' /></td>");
+                        //tr.push("<td><label style='width:130px'>" + data.lstsaleorder[i].SiteName + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].ServiceName + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].VendorName + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].FromDate + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].ToDate + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].Side + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].Quantity + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].Height + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].Width + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].Area + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].Rate + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].TotalAmount + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].CGST + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].SGST + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].IGST + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].TDS + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].Discount + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].FinalAmount + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].Description + " </label></td>");
+
+                        tr.push('</tr>');
+                        j++;
+                    }
+                    tr.push('<tr style="display:none">');
+                    tr.push("<td><input type='hidden' value='" + j + "' id='hdrows' name='hdrows'></td>");
+                    tr.push('</tr>');
+                    $('#tblSaleOrderLines').append($(tr.join('')));
+                    $("#divload").css({ 'display': 'none' });
+                }
+                else {
+                    alert("Sale Order details cannot be loaded.\nPlease try again !");
+                    $("#divload").css({ 'display': 'none' });
+                }
+            }, error: function () {
+                alert('Some Thing wrong!');
+                $("#divload").css({ 'display': 'none' });
+            }
+        });
+    }
+
+    function isNumber(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31
+          && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+
+    function validatePO() {
+        var result = confirm('Are you sure you want to save the Changes ?');
+        if (result == false) {
+            return false;
+        }
+
+        $(".errortext").removeClass("errortext");
+        if ($('#PONumber').val() == "") {
+            $("#PONumber").addClass('errortext');
+            $('#PONumber').focus();
+            return false;
+        }
+        if ($('#PODate').val() == "") {
+            $("#PODate").addClass('errortext');
+            $('#PODate').focus();
+            return false;
+        }
+        if ($('#PaymentTerms').val() == "") {
+            $("#PaymentTerms").addClass('errortext');
+            $('#PaymentTerms').focus();
+            return false;
+        }
+        if ($('#SaleOrderNumber').val() == "") {
+            $("#SaleOrderNumber").addClass('errortext');
+            $('#SaleOrderNumber').focus();
+            return false;
+        }
+        if ($('#CampaignNumber').val() == "") {
+            $("#CampaignNumber").addClass('errortext');
+            $('#CampaignNumber').focus();
+            return false;
+        }
+
+        return true;
+    }
+
+    function calculateRate(j) {
+        $("#divload").css({ 'display': '' });
+        var area = document.getElementById('txtArea_' + j).value;
+        var rate = document.getElementById('txtRate_' + j).value;
+        var amount = document.getElementById('txtTotalAmount_' + j).value;
+
+        var rate = (Number)(amount) / (Number)(area);
+        document.getElementById('txtRate_' + j).value = rate.toFixed(2);
+        $("#divload").css({ 'display': 'none' });
+    }
+
+    function calculateArea(j) {
+        $("#divload").css({ 'display': '' });
+        var height, width, area = 1;
+
+        height = document.getElementById('txtHeight_' + j).value;
+        width = document.getElementById('txtWidth_' + j).value;
+
+        area = (Number)(height) * (Number)(width);
+        document.getElementById('txtArea_' + j).value = area.toFixed(2);
+        calculateAmount1(j);
+        calculateAmount2(j);
+        calculateAmount3(j);
+        $("#divload").css({ 'display': 'none' });
+    }
+
+    function calculateAmount1(j) {
+        $("#divload").css({ 'display': '' });
+        var unit, rate, side, area, amount = 0;
+
+        side = document.getElementById('txtSide_' + j).value;
+        unit = document.getElementById('txtQuantity_' + j).value;
+        area = document.getElementById('txtArea_' + j).value;
+        rate = document.getElementById('txtRate_' + j).value;
+
+        //alert("Side : " + side + "\nUnit : " + unit + "\nArea : " + area + "\nRate : " + rate);
+        amount = side * unit * area * rate;
+        document.getElementById('txtTotalAmount_' + j).value = amount.toFixed(2)
+        calculateAmount2(j);
+        calculateAmount3(j);
+        $("#divload").css({ 'display': 'none' });
+    }
+
+    function calculateAmount2(j) {
+        $("#divload").css({ 'display': '' });
+        var tds, discount, amount, amounttoSubtract = 0;
+
+
+        tds = document.getElementById('txtTDS_' + j).value;
+        discount = document.getElementById('txtDiscount_' + j).value;
+        amount = document.getElementById('txtFinalAmount_' + j).value;
+
+        amounttoSubtract = (Number)(tds) + (Number)(discount);
+        //alert("Sub : " + amounttoSubtract + "\nPrev : " + amount);
+        amount = amount - amounttoSubtract;
+        document.getElementById('txtFinalAmount_' + j).value = amount.toFixed(2);
+
+        calculateAmount3(j);
+        $("#divload").css({ 'display': 'none' });
+    }
+
+    function calculateAmount3(j) {
+        var totalamount = 0;
+        var cgstpercent, sgstpercent, igstpercent, cgstvalue, sgstvalue, igstvalue, amount = 0;
+        cgstpercent = document.getElementById('txtCGST_' + j).value;
+        sgstpercent = document.getElementById('txtSGST_' + j).value;
+        igstpercent = document.getElementById('txtIGST_' + j).value;
+
+        amount = document.getElementById('txtTotalAmount_' + j).value;
+
+        cgstvalue = amount * cgstpercent / 100;
+        sgstvalue = amount * sgstpercent / 100;
+        igstvalue = amount * igstpercent / 100;
+
+        totalamount = (Number)(amount) + (Number)(cgstvalue) + (Number)(sgstvalue) + (Number)(igstvalue);
+        document.getElementById('txtFinalAmount_' + j).value = totalamount.toFixed(2);
+
+        //Calculate TDS & Discount
+        var tds, discount, amount, amounttoSubtract = 0;
+
+        tds = document.getElementById('txtTDS_' + j).value;
+        discount = document.getElementById('txtDiscount_' + j).value;
+        amount = document.getElementById('txtFinalAmount_' + j).value;
+
+        amounttoSubtract = (Number)(tds) + (Number)(discount);
+        amount = amount - amounttoSubtract;
+        document.getElementById('txtFinalAmount_' + j).value = amount.toFixed(2);
+        //Calculate TDS & Discount
+    }
+
+    function calculateRateFromAmount() {
+        var rate = (Number)($('#Amt').val()) / (Number)($('#Area').val());
+        //alert(rate);
+        $('#Rate').val(rate);
+        calculateAmount1();
+    }
+
+    //function tdsdiscount(j) {
+    //    var tds, discount, amount, amounttoSubtract, prevamt = 0;
+
+
+    //    tds = document.getElementById('txtTDS_' + j).value;
+    //    discount = document.getElementById('txtDiscount_' + j).value;
+    //    amount = document.getElementById('txtFinalAmount_' + j).value;
+
+    //    prevamt = (Number)(amount) + (Number)(discount) + (Number)(tds);
+    //    amounttoSubtract = (Number)(tds) + (Number)(discount);
+    //    //alert("Sub : " + amounttoSubtract + "\nPrev : " + amount);
+    //    amount = amount - amounttoSubtract;
+    //    document.getElementById('txtFinalAmount_' + j).value = amount.toFixed(2);
+    //}
+
+</script>

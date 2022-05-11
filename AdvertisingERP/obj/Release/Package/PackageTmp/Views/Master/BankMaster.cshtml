@@ -1,0 +1,123 @@
+﻿@model AdvertisingERP.Models.Master
+
+@{
+    ViewBag.Title = "BankMaster";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@using (Html.BeginForm("BankMaster", "Master", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+{
+    <div class="page-content">
+        <!--breadcrumb-->
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+            <div class="breadcrumb-title pe-3">Master</div>
+            <div class="ps-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 p-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Bank Master</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="ms-auto">
+                <div class="btn-group">
+                    <a href="/Master/BankList" class="btn btn-light list-button">Back To List</a>
+
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="card">
+            @if (@TempData["Banksuccess"] != null)
+            {
+                <div class="alert border-0 alert-dismissible fade show py-2">
+                    <div class="d-flex align-items-center">
+                        <div class="font-35 text-white">
+                            <i class="bx bxs-check-circle" style="color:green"></i>
+                        </div>
+                        <div class="ms-3">
+                            <div class="text-white">@TempData["Banksuccess"]!</div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+            }
+            @if (@TempData["Bankerror"] != null)
+            {
+                <div class="alert border-0 alert-dismissible fade show py-2">
+                    <div class="d-flex align-items-center">
+                        <div class="font-35 text-white">
+                            <i class="bx bxs-check-circle" style="color:green"></i>
+                        </div>
+                        <div class="ms-3">
+                            <div class="text-white">@TempData["Bankerror"]!</div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+            <div class="card-body">
+                <div class="p-4 border rounded">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label for="validationCustom01" class="form-label">Bank Name  <span style="color: red">*</span></label>
+                            @Html.TextBoxFor(m => m.BankName, new { @class = "form-control", @Placeholder = "Bank Name" })
+                            @Html.HiddenFor(m => m.BankID)
+                        </div>
+                        <div class="col-md-4">
+                            <label for="validationCustom02" class="form-label">IFSC Prefix <span style="color: red">*</span></label>
+                            @Html.TextBoxFor(m => m.IFSCPrefix, new { @class = "form-control", @Placeholder = "IFSC Prefix" })
+                        </div>
+                        <div class="col-12">
+                            @if (Model.BankID != null)
+                            {
+                                <input type="submit" value="Update Bank" class="btn btn-light px-5" name="UpdateBank" onclick="return validateservice();" />
+                            }
+                            else
+                            {
+                                <input type="submit" value="Save Bank" class="btn btn-light px-5" name="SaveBank" onclick="return validateservice();" />
+
+                                <a href="/Master/BankMaster" class="btn btn-dark">Reset</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        }
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script>
+
+            $(document).ready(function () {
+                $("#divload").css({ 'display': 'none' });
+            });
+            function isNumber(evt) {
+                var charCode = (evt.which) ? evt.which : evt.keyCode;
+                if (charCode != 46 && charCode > 31
+                  && (charCode < 48 || charCode > 57))
+                    return false;
+
+                return true;
+            }
+
+
+            function validateservice() {
+                $(".errortext").removeClass("errortext");
+                if ($('#BankName').val() == '') {
+                    $("#BankName").addClass('errortext');
+                    $('#BankName').focus();
+                    return false;
+                }
+                if ($('#IFSCPrefix').val() == '') {
+                    $("#IFSCPrefix").addClass('errortext');
+                    $('#IFSCPrefix').focus();
+                    return false;
+                }
+                $("#divload").css({ 'display': '' });
+            }
+
+        </script>

@@ -1,0 +1,640 @@
+﻿@model AdvertisingERP.Models.PO
+
+@{
+    ViewBag.Title = "EditPO";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("EditPO", "PurchaseOrder", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="page-content">
+        <!--breadcrumb-->
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+            <div class="breadcrumb-title pe-3">Purchase Order</div>
+            <div class="ps-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 p-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Edit Purchase Order</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="ms-auto">
+                <div class="btn-group">
+                    <a href="/PurchaseOrder/POList" class="btn btn-light list-button">Purchase Order List</a>
+                </div>
+            </div>
+        </div>
+        <hr />
+
+        <div class="card">
+            @if (@TempData["UpdatePO"] != null)
+            {
+                <div class="alert border-0 alert-dismissible fade show py-2" style="display: @TempData["Class"];">
+                    <div class="d-flex align-items-center">
+                        <div class="font-35 text-white">
+                            <i class="bx bxs-check-circle" style="color:green"></i>
+                        </div>
+                        <div class="ms-3">
+                            <div class="text-white">@TempData["UpdatePO"]!</div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+            }
+            <div class="card-body">
+                <div class="p-4 border rounded">
+
+                    <div class="row g-3">
+                        <div class="col-md-4 mt-4">
+
+                            <label class="index-1">Purchase Order No<span style="color: red">*</span> </label>
+
+                            @Html.TextBoxFor(m => m.PONumber, new { @class = "form-control", @Placeholder = "Purchase Order No", @readonly = "readonly" })
+                            @Html.HiddenFor(m => m.PK_PurchaseOrderID)
+
+
+                        </div>
+                        <div class="col-md-4 mt-4">
+
+                            <label class="index-1">PO Date<span style="color: red">*</span></label>
+
+                            @Html.TextBoxFor(m => m.PODate, new { @class = "form-control mydatepicker", @Placeholder = "Order Date" })
+
+                        </div>
+                        <div class="col-md-4 mt-4">
+
+                            <label class="index-1">Payment Terms (No Of Days)<span style="color: red">*</span></label>
+
+                            @Html.TextBoxFor(m => m.PaymentTerms, new { @class = "form-control", @placeholder = "Number Of Days", @onkeypress = "return isNumber(event);" })
+
+                        </div>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-md-4 mt-4">
+
+                            <label class="index-1">Campaign No <span style="color: red">*</span></label>
+
+                            @Html.TextBoxFor(m => m.CampaignNumber, new { @class = "form-control", @Placeholder = "Campaign No", @onchange = "return getsaleorder();" })
+                            @Html.HiddenFor(m => m.CampaignNoID)
+
+                        </div>
+                        <div class="col-md-4 mt-4">
+
+                            <label class="index-1">Sale Order No</label>
+
+                            @Html.DropDownListFor(m => m.SaleOrderNumber, new SelectList(ViewBag.ddlsaleorderno, "Value", "Text"), new { @class = "form-control", @onchange = "return saleOrderChange();" })
+                            @Html.HiddenFor(m => m.SaleOrderNumberID)
+
+                        </div>
+                        <div class="col-md-4 mt-4">
+
+                            <label class="index-1">Operation Executive </label>
+
+                            @Html.DropDownListFor(m => m.OperationExecutiveID, new SelectList(ViewBag.ddlOperationExecutive, "Value", "Text"), new { @class = "form-control", @disabled = "disabled" })
+
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-4 mt-4">
+
+                            <label class="index-1">Invoice No <span style="color: red">*</span></label>
+
+                            @Html.TextBoxFor(m => m.InvoiceNo, new { @class = "form-control", @Placeholder = "Invoice No" })
+
+                        </div>
+                        <div class="col-md-4 mt-4 ">
+
+                            <label class="index-1">Upload Invoice</label>
+                            <input type="file" name="postedFile" id="Image" class="form-control" />
+
+                        </div>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-md-4 mt-4">
+
+                            <label class="index-1">Vendor Name</label>
+
+                            @Html.TextBoxFor(m => m.VendorName, new { @class = "form-control", @Placeholder = "Vendor Name", @readonly = "readonly" })
+
+                        </div>
+                        <div class="col-md-4 mt-4">
+
+                            <label class="index-1">Vendor Mobile</label>
+
+                            @Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control", @Placeholder = "Vendor Mobile", @readonly = "readonly" })
+
+                        </div>
+                    </div>
+                    <br />
+                    <div class="table-responsive">
+                        <div class="col-md-12">
+                            <table class="table-responsive table table-striped table-bordered display">
+                                <thead>
+                                    <tr>
+                                        <th>Site Name</th>
+                                        <th>Service Name</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Side</th>
+                                        <th>Quantity</th>
+                                        <th>Height</th>
+                                        <th>Width</th>
+                                        <th>Area</th>
+                                        <th>Amount</th>
+                                        <th>Rate</th>
+                                        <th>Total Amount</th>
+                                        <th>CGST</th>
+                                        <th>SGST</th>
+                                        <th>IGST</th>
+                                        <th>TDS</th>
+                                        <th>Discount</th>
+                                        <th>Final Amount</th>
+                                        <th>Description</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        if (Model.lstPO != null)
+                                        {
+                                            var i = 0;
+                                            foreach (var item in Model.lstPO)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <input type="hidden" value="@item.PK_PurchaseOrderDetailsID" name="hdPurchaseOrderDetailsID_@i" />
+                                                        <input type="hidden" value="@item.FK_SaleOrderDetailsID" name="hdSaleOrderDetailsID_@i" />
+                                                        <input type="hidden" value="@item.SiteID" name="hdSiteID_@i" />
+                                                        <input type="hidden" value="@item.ServiceID" name="hdServiceID_@i" />
+                                                        <input type="hidden" value="@item.VendorID" name="hdVednorID_@i" />
+                                                        @item.SiteName
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="txtServiceName_@i" value="@item.ServiceName" readonly="readonly" class="form-control" style="width:150px" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="txtStartDate_@i" value="@item.StartDate" class="form-control" style="width:150px" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="txtEndDate_@i" value="@item.EndDate" class="form-control" style="width:150px" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="txtSide_@i" id="txtSide_@i" value="@item.Side" onchange="return calculateAmount1('@i');" class="form-control" style="width:150px" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="txtQuantity_@i" id="txtQuantity_@i" value="@item.Quantity" onchange="return calculateAmount1('@i');" class="form-control" style="width:150px" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="txtHeight_@i" id="txtHeight_@i" value="@item.Height" onchange="return calculateArea('@i');" class="form-control" style="width:150px" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="txtWidth_@i" id="txtWidth_@i" value="@item.Width" onchange="return calculateArea('@i');" class="form-control" style="width:150px" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="txtArea_@i" id="txtArea_@i" value="@item.Area" onchange="return calculateAmount1('@i');" class="form-control" style="width:150px" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="txtAmt_@i" id="txtAmt_@i" value="@item.Amt" onchange="return calculateRateFromAmount('@i');" class="form-control" style="width:150px" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="txtRate_@i" id="txtRate_@i" value="@item.Rate" onchange="return calculateAmount1('@i');" class="form-control" style="width:150px" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="txtAmount_@i" id="txtTotalAmount_@i" value="@item.TotalAmount" class="form-control" style="width:150px" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="txtCGST_@i" id="txtCGST_@i" value="@item.CGST" onchange="return calculateAmount3('@i');" class="form-control" style="width:150px" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="txtSGST_@i" id="txtSGST_@i" value="@item.SGST" onchange="return calculateAmount3('@i');" class="form-control" style="width:150px" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="txtIGST_@i" id="txtIGST_@i" value="@item.IGST" onchange="return calculateAmount3('@i');" class="form-control" style="width:150px" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="txtTDS_@i" id="txtTDS_@i" value="@item.TDS" onchange="return calculateAmount2('@i');" class="form-control" style="width:150px" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="txtDiscount_@i" id="txtDiscount_@i" value="@item.Discount" onchange="return calculateAmount2('@i');" class="form-control" style="width:150px" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="txtFinalAmount_@i" id="txtFinalAmount_@i" value="@item.FinalAmount" class="form-control" style="width:150px" readonly="readonly" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="txtDescription_@i" value="@item.Description" class="form-control" style="width:150px" />
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-sm btn-danger" onclick="return deletePOLine('@item.PK_PurchaseOrderDetailsID');">Delete</a>
+                                                    </td>
+                                                </tr>
+                                                i++;
+                                            }
+                                            <input type="hidden" name="hdRowCount" value="@i" />
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <input type="submit" value="Post Purchase Order" class="btn btn-light list-button" id="PostPurchaseOrder" name="PostPurchaseOrder" onclick="return validatePO();" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+}
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<script>
+    jQuery('.mydatepicker, #PODate, #datepicker, .input-group.date').datepicker(
+        {
+            dateFormat: 'dd/mm/yy',
+            changeYear: true,
+            changeMonth: true
+        });
+
+    $(document).ready(function () {
+        var cityuse = [];
+        var campaignno = [];
+        $.ajax({
+            url: '/PurchaseOrder/GetAllCampians',
+            type: 'Post',
+            success: function (response) {
+                if (response != null) {
+                    $(response).each(function (index, item) {
+                        campaignno.push(item.CreativeName + "(" + item.CampaignNo + ")");
+                    });
+
+                    $('#CampaignNumber').autocomplete({
+                        source: campaignno,
+                        select: function (event, ui) {
+                            var str = ui.item.label;
+                            var afterComma = str.substr(str.indexOf("(") + 1);
+                            var campaignid = afterComma.substr(0, afterComma.length - 1);
+                            $('#CampaignNoID').val(campaignid);
+                        }
+                    })
+                }
+                else {
+
+                }
+            }, error: function () { alert('Some Thing wrong !'); }
+        });
+
+        $.ajax({
+            url: "/PurchaseOrder/GetSaleOrderForPOUpdate",
+            Type: "Get",
+            DataType: "JSON",
+            data: { CampionNo: $('#CampaignNoID').val() },
+            success: function (data) {
+                var j = 1;
+                if (data.Result == "1") {
+                    $("#SaleOrderNumber").html("");
+                    $("#SaleOrderNumber").empty();
+                    $("#SaleOrderNumber").append($('<option></option>').val(0).html('Select Sale Order'));
+                    $.each(data.lstsaleoredernolist, function (index, Sectorcount) {
+                        $("#SaleOrderNumber").append(
+                              $('<option></option>').val(Sectorcount.Value).html(Sectorcount.Text));
+                        $("#divload").css({ 'display': 'none' });
+                    });
+
+                    var selectedSO = $("#SaleOrderNumberID").val();
+                    $("#SaleOrderNumber").val(selectedSO);
+
+                }
+                else {
+                    $("#SaleOrderNumber").html("");
+                    $("#SaleOrderNumber").empty();
+                    $("#SaleOrderNumber").append($('<option></option>').val(0).html('Select Sale Order'));
+                    $("#divload").css({ 'display': 'none' });
+                }
+            }
+        });
+        $("#divload").css({ 'display': 'none' });
+
+    });
+
+    function deletePOLine(pid) {
+        var res = confirm('Are you sure you want to Delete this PO Line ?');
+        if (res == false) {
+            return false;
+        }
+
+        $.ajax({
+            url: "/PurchaseOrder/DeletePOLine",
+            Type: "Get",
+            DataType: "JSON",
+            data: { pid: pid, pon: $('#PONumber').val() },
+            success: function (data) {
+                var j = 1;
+                if (data.Result == "1") {
+                    alert(data.PostStatus);
+                    window.location.href = document.URL;
+                    //window.location.href = document.URL + "?pon=" + data.PONumber;
+                }
+                else {
+                    alert(data.PostStatus);
+                }
+            }
+        });
+    }
+
+    function getsaleorder() {
+        $("#divload").css({ 'display': '' });
+
+        $.ajax({
+            url: "/PurchaseOrder/GetSaleOrder",
+            Type: "Get",
+            DataType: "JSON",
+            data: { CampionNo: $('#CampaignNoID').val() },
+            success: function (data) {
+                var j = 1;
+                if (data.Result == "1") {
+                    $("#SaleOrderNumber").html("");
+                    $("#SaleOrderNumber").empty();
+                    $("#SaleOrderNumber").append($('<option></option>').val(0).html('Select Sale Order'));
+                    $.each(data.lstsaleoredernolist, function (index, Sectorcount) {
+                        $("#SaleOrderNumber").append(
+                              $('<option></option>').val(Sectorcount.Value).html(Sectorcount.Text));
+                        $("#divload").css({ 'display': 'none' });
+
+                    });
+
+                }
+                else {
+                    $("#SaleOrderNumber").html("");
+                    $("#SaleOrderNumber").empty();
+                    $("#SaleOrderNumber").append($('<option></option>').val(0).html('Select Sale Order'));
+                    $("#divload").css({ 'display': 'none' });
+                }
+            }
+        });
+    }
+
+    function saleOrderChange() {
+        $("#divload").css({ 'display': '' });
+        if ($('#SaleOrderNumber').val() == "0") {
+            alert("Invalid Sales Order Number");
+            $('#SaleOrderNumber').val('');
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        $.ajax({
+            url: '/PurchaseOrder/GetSaleOrderDetails',
+            data: { 'saleOrderNo': $('#SaleOrderNumber').val() },
+            type: 'Post',
+            success: function (data) {
+                if (data != null) {
+                    $('#CampaignID').val(data.CampaignID);
+                    $('#CampaignNumber').val(data.CampaignNumber);
+                    $('#SaleOrderNumberID').val(data.SalesOrderNoID);
+                    $('#OperationExecutiveID').val(data.OperationExecutiveID);
+                    var tr = [];
+                    var j = 1;
+
+                    $('#tblSaleOrderLines').empty();
+                    for (var i = 0; i < data.lstsaleorder.length; i++) {
+                        tr.push('<tr>');
+                        tr.push("<td style='width:10px'>" + j + "</td>");
+                        if (data.lstsaleorder[i].PONumber == "Pending") {
+                            tr.push("<td style='width:10px'><input type='checkbox' name='chkPOLine_" + j + "' /></td>");
+                        }
+                        else {
+                            tr.push("<td style='width:10px'><label>" + data.lstsaleorder[i].PONumber + "</label></td>");
+                        }
+                        tr.push("<td><label style='width:130px'>" + data.lstsaleorder[i].SiteName + " </label></td>");
+                        tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].ServiceName + " </label></td>");
+                        tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].VendorName + " </label></td>");
+                        tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].FromDate + " </label></td>");
+                        tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].ToDate + " </label></td>");
+                        tr.push("<td><input type='text' id='txtSide_" + j + "' name='txtSide_" + j + "' value='" + data.lstsaleorder[i].Side + "' onchange='return calculateAmount1(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtQuantity_" + j + "' name='txtQuantity_" + j + "' value='" + data.lstsaleorder[i].Quantity + "' onchange='return calculateAmount1(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtHeight_" + j + "' name='txtHeight_" + j + "' value='" + data.lstsaleorder[i].Height + "' onchange='return calculateArea(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtWidth_" + j + "' name='txtWidth_" + j + "' value='" + data.lstsaleorder[i].Width + "' onchange='return calculateArea(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtArea_" + j + "' name='txtArea_" + j + "' value='" + data.lstsaleorder[i].Area + "' onchange='return calculateAmount1(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtRate_" + j + "' name='txtRate_" + j + "' value='" + data.lstsaleorder[i].Rate + "' onchange='return calculateAmount1(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtTotalAmount_" + j + "' name='txtTotalAmount_" + j + "' value='" + data.lstsaleorder[i].TotalAmount + "' /></td>");
+                        tr.push("<td><input type='text' id='txtCGST_" + j + "' name='txtCGST_" + j + "' value='" + data.lstsaleorder[i].CGST + "' onchange='return calculateAmount3(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtSGST_" + j + "' name='txtSGST_" + j + "' value='" + data.lstsaleorder[i].SGST + "' onchange='return calculateAmount3(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtIGST_" + j + "' name='txtIGST_" + j + "' value='" + data.lstsaleorder[i].IGST + "'onchange='return calculateAmount3(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtTDS_" + j + "' name='txtTDS_" + j + "' value='" + data.lstsaleorder[i].TDS + "' onchange='return calculateAmount2(" + j + ")' /></td>");
+                        tr.push("<td><input type='text' id='txtDiscount_" + j + "' name='txtDiscount_" + j + "' value='" + data.lstsaleorder[i].Discount + "' onchange='return calculateAmount2()' /></td>");
+                        tr.push("<td><input type='text' id='txtFinalAmount_" + j + "' name='txtFinalAmount_" + j + "' value='" + data.lstsaleorder[i].FinalAmount + "' /></td>");
+                        tr.push("<td><input type='text' id='txtDescription_" + j + "' name='txtDescription_" + j + "' value='" + data.lstsaleorder[i].Description + "' /></td>");
+
+                        tr.push("<td style='display:none'><input type='hidden' name='txtSaleOrderDetailsID_" + j + "' value='" + data.lstsaleorder[i].SaleOrderDetailsID + "' /></td>");
+                        tr.push("<td style='display:none'><input type='hidden' name='txtSiteID_" + j + "' value='" + data.lstsaleorder[i].SiteID + "' /></td>");
+                        tr.push("<td style='display:none'><input type='hidden' name='txtServiceID_" + j + "' value='" + data.lstsaleorder[i].ServiceID + "' /></td>");
+                        tr.push("<td style='display:none'><input type='hidden' name='txtVendorID_" + j + "' value='" + data.lstsaleorder[i].VendorID + "' /></td>");
+                        tr.push("<td style='display:none'><input type='hidden' name='txtFromDate_" + j + "' value='" + data.lstsaleorder[i].FromDate + "' /></td>");
+                        tr.push("<td style='display:none'><input type='hidden' name='txtToDate_" + j + "' value='" + data.lstsaleorder[i].ToDate + "' /></td>");
+                        //tr.push("<td><label style='width:130px'>" + data.lstsaleorder[i].SiteName + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].ServiceName + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].VendorName + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].FromDate + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].ToDate + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].Side + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].Quantity + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].Height + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].Width + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].Area + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].Rate + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].TotalAmount + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].CGST + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].SGST + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].IGST + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].TDS + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].Discount + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].FinalAmount + " </label></td>");
+                        //tr.push("<td><label style='width:150px'>" + data.lstsaleorder[i].Description + " </label></td>");
+
+                        tr.push('</tr>');
+                        j++;
+                    }
+                    tr.push('<tr style="display:none">');
+                    tr.push("<td><input type='hidden' value='" + j + "' id='hdrows' name='hdrows'></td>");
+                    tr.push('</tr>');
+                    $('#tblSaleOrderLines').append($(tr.join('')));
+                    $("#divload").css({ 'display': 'none' });
+                }
+                else {
+                    alert("Sale Order details cannot be loaded.\nPlease try again !");
+                    $("#divload").css({ 'display': 'none' });
+                }
+            }, error: function () {
+                alert('Some Thing wrong!');
+                $("#divload").css({ 'display': 'none' });
+            }
+        });
+    }
+
+    function isNumber(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31
+          && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+
+    function validatePO() {
+        var result = confirm('Are you sure you want to save the Changes ?');
+        if (result == false) {
+            return false;
+        }
+
+        $(".errortext").removeClass("errortext");
+        if ($('#PONumber').val() == "") {
+            $("#PONumber").addClass('errortext');
+            $('#PONumber').focus();
+            return false;
+        }
+        if ($('#PODate').val() == "") {
+            $("#PODate").addClass('errortext');
+            $('#PODate').focus();
+            return false;
+        }
+        if ($('#PaymentTerms').val() == "") {
+            $("#PaymentTerms").addClass('errortext');
+            $('#PaymentTerms').focus();
+            return false;
+        }
+        if ($('#SaleOrderNumber').val() == "") {
+            $("#SaleOrderNumber").addClass('errortext');
+            $('#SaleOrderNumber').focus();
+            return false;
+        }
+        if ($('#CampaignNumber').val() == "") {
+            $("#CampaignNumber").addClass('errortext');
+            $('#CampaignNumber').focus();
+            return false;
+        }
+
+        return true;
+    }
+
+    function calculateArea(i) {
+        $("#divload").css({ 'display': '' });
+        var height, width, area = 1;
+
+        height = document.getElementById('txtHeight_' + i).value;
+        width = document.getElementById('txtWidth_' + i).value;
+
+        area = (Number)(height) * (Number)(width);
+        document.getElementById('txtArea_' + i).value = area.toFixed(2);
+        calculateAmount1(i);
+        calculateAmount2(i);
+        calculateAmount3(i);
+        $("#divload").css({ 'display': 'none' });
+    }
+
+    function calculateAmount1(i) {
+        $("#divload").css({ 'display': '' });
+        var unit, rate, side, area, amount = 0;
+
+        side = document.getElementById('txtSide_' + i).value;
+        unit = document.getElementById('txtQuantity_' + i).value;
+        area = document.getElementById('txtArea_' + i).value;
+        rate = document.getElementById('txtRate_' + i).value;
+
+        amount = side * unit * area * rate;
+        document.getElementById('txtAmt_' + i).value = (area * rate).toFixed(2);
+        document.getElementById('txtTotalAmount_' + i).value = amount.toFixed(2);
+
+        calculateAmount2(i);
+        calculateAmount3(i);
+        $("#divload").css({ 'display': 'none' });
+    }
+
+    function calculateAmount2(i) {
+        $("#divload").css({ 'display': '' });
+        var tds, discount, amount, amounttoSubtract = 0;
+
+        tds = document.getElementById('txtTDS_' + i).value;
+        discount = document.getElementById('txtDiscount_' + i).value;
+        amount = document.getElementById('txtTotalAmount_' + i).value;
+
+        amounttoSubtract = (Number)(tds) + (Number)(discount);
+        //alert("Sub : " + amounttoSubtract + "\nPrev : " + amount);
+        amount = amount - amounttoSubtract;
+        document.getElementById('txtFinalAmount_' + i).value = amount.toFixed(2);
+        calculateAmount3(i);
+        $("#divload").css({ 'display': 'none' });
+    }
+
+    function calculateAmount3(i) {
+        var totalamount = 0;
+        var cgstpercent, sgstpercent, igstpercent, cgstvalue, sgstvalue, igstvalue, amount = 0;
+        cgstpercent = document.getElementById('txtCGST_' + i).value;
+        sgstpercent = document.getElementById('txtSGST_' + i).value;
+        igstpercent = document.getElementById('txtIGST_' + i).value;
+
+        amount = document.getElementById('txtTotalAmount_' + i).value;
+
+        cgstvalue = amount * cgstpercent / 100;
+        sgstvalue = amount * sgstpercent / 100;
+        igstvalue = amount * igstpercent / 100;
+
+        totalamount = (Number)(amount) + (Number)(cgstvalue) + (Number)(sgstvalue) + (Number)(igstvalue);
+
+        document.getElementById('txtFinalAmount_' + i).value = totalamount.toFixed(2);
+        //Calculate TDS & Discount
+        var tds, discount, amount, amounttoSubtract = 0;
+
+        tds = document.getElementById('txtTDS_' + i).value;
+        discount = document.getElementById('txtDiscount_' + i).value;
+        amount = document.getElementById('txtFinalAmount_' + i).value;
+
+        amounttoSubtract = (Number)(tds) + (Number)(discount);
+        amount = amount - amounttoSubtract;
+        document.getElementById('txtFinalAmount_' + i).value = amount.toFixed(2);
+        //Calculate TDS & Discount
+    }
+
+    function calculateRateFromAmount(i) {
+        var amt = document.getElementById('txtAmt_' + i).value;
+        var area = document.getElementById('txtArea_' + i).value;
+        var rate = (Number)(amt) / (Number)(area);
+
+        document.getElementById('txtAmt_' + i).value = rate;
+        calculateAmount1(i);
+    }
+
+</script>
+

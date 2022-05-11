@@ -1,0 +1,589 @@
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\ApplicationInsights.config
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\roslyn\csc.exe
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Collections.Immutable.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Reflection.Metadata.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\roslyn\vbc.exe
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe.config
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll.config
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.pdb
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\Microsoft.Web.Infrastructure.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.pdb
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\ApplicationInsights.config
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\csc.exe
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Collections.Immutable.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Reflection.Metadata.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\vbc.exe
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe.config
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll.config
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.pdb
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.Web.Infrastructure.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.xml
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.dll
+E:\Ashwani Mishra repo\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.pdb
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\ApplicationInsights.config
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\csc.exe
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Collections.Immutable.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Reflection.Metadata.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\vbc.exe
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe.config
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll.config
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.pdb
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Agent.Intercept.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.Web.Infrastructure.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.xml
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.xml
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.xml
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.xml
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.xml
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.xml
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.xml
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.xml
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.xml
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.xml
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.xml
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.xml
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.xml
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.xml
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.dll
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.pdb
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\ApplicationInsights.config
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\csc.exe
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Collections.Immutable.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Reflection.Metadata.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\vbc.exe
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe.config
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll.config
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.pdb
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.Web.Infrastructure.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.xml
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.xml
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.xml
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.xml
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.xml
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.xml
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.xml
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.xml
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.xml
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.xml
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.xml
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.xml
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.xml
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.xml
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.dll
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.pdb
+D:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.csprojResolveAssemblyReference.cache
+E:\Divya\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.csprojResolveAssemblyReference.cache
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\ApplicationInsights.config
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\csc.exe
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Collections.Immutable.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Reflection.Metadata.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\vbc.exe
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe.config
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll.config
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.pdb
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.Web.Infrastructure.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.xml
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.xml
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.xml
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.xml
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.xml
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.xml
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.xml
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.xml
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.xml
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.xml
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.xml
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.xml
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.xml
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.xml
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.dll
+E:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.pdb
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\ApplicationInsights.config
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\csc.exe
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Collections.Immutable.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Reflection.Metadata.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\vbc.exe
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe.config
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll.config
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.pdb
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.Web.Infrastructure.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.xml
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.xml
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.xml
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.xml
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.xml
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.xml
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.xml
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.xml
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.xml
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.xml
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.xml
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.xml
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.xml
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.xml
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.csprojResolveAssemblyReference.cache
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.dll
+D:\Jyoti\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.pdb
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\ApplicationInsights.config
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\csc.exe
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Collections.Immutable.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Reflection.Metadata.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\vbc.exe
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe.config
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll.config
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.pdb
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Agent.Intercept.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.Web.Infrastructure.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.xml
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.xml
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.xml
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.xml
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.xml
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.xml
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.xml
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.xml
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.xml
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.xml
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.xml
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.xml
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.xml
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.xml
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.dll
+E:\reenaproject\Repository\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.pdb
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\ApplicationInsights.config
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\csc.exe
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Collections.Immutable.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Reflection.Metadata.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\vbc.exe
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe.config
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll.config
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.pdb
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.Web.Infrastructure.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.xml
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.xml
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.xml
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.xml
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.xml
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.xml
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.xml
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.xml
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.xml
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.xml
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.xml
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.xml
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.xml
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.xml
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.dll
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.pdb
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\ApplicationInsights.config
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\csc.exe
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Collections.Immutable.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Reflection.Metadata.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\vbc.exe
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe.config
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll.config
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.pdb
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.Web.Infrastructure.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.xml
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.xml
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.xml
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.xml
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.xml
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.xml
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.xml
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.xml
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.xml
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.xml
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.xml
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.xml
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.xml
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.xml
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.csprojResolveAssemblyReference.cache
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.dll
+D:\Reena\Repo\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.pdb
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\ApplicationInsights.config
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\csc.exe
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Collections.Immutable.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Reflection.Metadata.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\vbc.exe
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe.config
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll.config
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.pdb
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Agent.Intercept.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.Web.Infrastructure.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.xml
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.xml
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.xml
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.xml
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.xml
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.xml
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.xml
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.xml
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.xml
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.xml
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.xml
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.xml
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.xml
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.xml
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.dll
+E:\SachinMishraProject\repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.pdb
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\ApplicationInsights.config
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\csc.exe
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Collections.Immutable.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\System.Reflection.Metadata.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\vbc.exe
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\roslyn\VBCSCompiler.exe.config
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll.config
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\AdvertisingERP.pdb
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Agent.Intercept.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.Web.Infrastructure.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.DependencyCollector.xml
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.Web.xml
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.AI.WindowsServer.xml
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.ApplicationInsights.xml
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Razor.xml
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.xml
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Deployment.xml
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Webpages.Razor.xml
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Helpers.xml
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Mvc.xml
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\Newtonsoft.Json.xml
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Net.Http.Formatting.xml
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.xml
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\bin\System.Web.Http.WebHost.xml
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.dll
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.pdb
+D:\reena Pro\NewRapo\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.csprojResolveAssemblyReference.cache
+E:\Repository\AdvertisingERP\AdvertisingERP\AdvertisingERP\obj\Debug\AdvertisingERP.csprojResolveAssemblyReference.cache

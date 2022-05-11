@@ -1,0 +1,364 @@
+﻿@model AdvertisingERP.Models.Expense
+
+@{
+    ViewBag.Title = "CrExpense";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+@using (Html.BeginForm("CrExpense", "Expense", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+{
+    <div class="page-content">
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+                    <div class="breadcrumb-title pe-3">Master</div>
+                    <div class="ps-3">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb mb-0 p-0">
+                                <li class="breadcrumb-item">
+                                    <a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">Cr Expense </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="ms-auto">
+                        <div class="btn-group">
+                            <a href="/Expense/CrDrExpenseList" class="btn btn-light list-button"> Back to List</a>
+
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="card">
+                    @if (@TempData["msg"] != null)
+                    {
+                        <div class="alert border-0 alert-dismissible fade show py-2">
+                            <div class="d-flex align-items-center">
+                                <div class="font-35 text-white">
+                                    <i class="bx bxs-check-circle" style="color:green"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <div class="text-white">@TempData["msg"]!</div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="table-responsive mt-5">
+                                <table id="example2" class="table table-striped table-bordered display">
+                                    <thead>
+                                        <tr>
+                                            <th>Company Name<span style="color: red">*</span> </th>
+                                            <th>Expense Type<span style="color: red">*</span> </th>
+                                            <th>Expense Name<span style="color: red">*</span> </th>
+                                            <th>Payment Mode<span style="color: red">*</span> </th>
+                                            <th id="thTransactionNO" style="display:none">Transaction No<span style="color: red">*</span> </th>
+
+                                            <th>Amount<span style="color: red">*</span> </th>
+                                            <th>Payment Date <span style="color: red">*</span></th>
+                                            <th>Remark <span style="color: red">*</span></th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="TextBoxContainer">
+                                        <tr class="mycontainer" id="mainrow">
+                                            <td>
+                                                @Html.DropDownListFor(m => m.PK_CompanyID, new SelectList(ViewBag.ddlcompany, "Value", "Text"), new { @class = "form-select CompanyID" })
+
+                                            </td>
+                                            <td>
+                                                @Html.DropDownListFor(m => m.FK_ExpenseTypeId, new SelectList(ViewBag.ddlExpenseType, "Value", "Text"), new { @class = "form-select ExpenseTypeId", @onchange = "return GetExpenseName();" })
+
+                                            </td>
+                                            <td>
+                                                @Html.DropDownListFor(m => m.PF_ExpenseNameID, new SelectList(ViewBag.ddlExpenseName, "Value", "Text"), new { @class = "form-select ExpenseNameID" })
+                                            </td>
+                                            <td>@Html.DropDownListFor(m => m.PK_PaymentmodeId, new SelectList(ViewBag.ddlpaymentmode, "Value", "Text"), new { @class = "form-select PaymentmodeId", @onchange = "return GetchaqueDetails()" })</td>
+
+                                            <td id="tdTransactionNo" style="display:none">@Html.TextBoxFor(m => m.TransactionNo, new { @class = "form-select TransactionNo", @placeholder = "Transaction No", })</td>
+
+                                            @*<td class="Chaque" style="display:none">@Html.TextBoxFor(m => m.ChaqueDate, new { @class = "form-select ", @placeholder = "Transaction Date", @visual = "false" })</td>*@
+                                            <td>@Html.TextBoxFor(m => m.Amount, new { @class = "form-select Amount", @placeholder = "Amount ", @onkeypress = "return isNumberOrDecimal(event);" })</td>
+                                            <td>@Html.TextBoxFor(m => m.PaymentDate, new { @class = "form-select PaymentDate", @placrholder = "Payment Date", @readonly = "true", @onclick = "pad2(n)" })</td>
+                                            <td>@Html.TextBoxFor(m => m.Remark, new { @class = "form-select Remark" })</td>
+                                            <td>
+                                                <input type="button" id="add" data-toggle="tooltip" data-original-title="Add" value="Add" style="width:80px" class="btn btn-success" />
+                                            </td>
+                                        </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="orderItems">
+                            <table class="table  table-striped table-bordered" id="orderdetailsItems"></table>
+                            <span id="orderItemError" style="color:red"></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                <input class="btn btn-success pull-left" type="submit" value="Save" id="btnsubmit" name="Save" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+
+
+@*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">*@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+
+
+<script>
+    $(document).ready(function () {
+      
+        $("#divload").css({ display: "none" });
+    });
+    function GetExpenseName() {
+        debugger;
+
+        var FK_ExpenseTypeId = $('#FK_ExpenseTypeId').val();
+        $.ajax({
+            url: '/Expense/GetExpenseTypeName', type: 'post', dataType: 'json',
+            data: { 'FK_ExpenseTypeId': FK_ExpenseTypeId },
+            success: function (data) {
+                debugger;
+                $("#PF_ExpenseNameID").html(""); // clear before appending new list
+                $("#PF_ExpenseNameID").empty();
+                $("#PF_ExpenseNameID").append(
+                      $('<option></option>').val(0).html('Select'));
+                $.each(data.ddlExpenseName, function (index, BlockCount) {
+                    $("#PF_ExpenseNameID").append(
+                          $('<option></option>').val(BlockCount.Value).html(BlockCount.Text));
+                });
+
+            }
+
+        });
+    }
+    function GetchaqueDetails() {
+        debugger;
+        if ($("#PK_PaymentmodeId").val() == '2') {
+            $("#tdTransactionNo").show();
+            $("#thTransactionNO").show();
+        }
+        else if ($("#PK_PaymentmodeId").val() == '3') {
+            $("#tdTransactionNo").show();
+            $("#thTransactionNO").show();
+
+        }
+        else if ($("#PK_PaymentmodeId").val() == '4') {
+            $("#tdTransactionNo").show();
+            $("#thTransactionNO").show();
+
+        }
+        else if ($("#PK_PaymentmodeId").val() == '5') {
+            $("#tdTransactionNo").show();
+            $("#thTransactionNO").show();
+
+        }
+        else if ($("#PK_PaymentmodeId").val() == '6') {
+            $("#tdTransactionNo").show();
+            $("#thTransactionNO").show();
+
+        }
+        else if ($("#PK_PaymentmodeId").val() == '10') {
+            $("#tdTransactionNo").show();
+            $("#thTransactionNO").show();
+
+        }
+        else if ($("#PK_PaymentmodeId").val() == '1') {
+            $("#tdTransactionNo").hide();
+            $("#thTransactionNO").hide();
+
+        }
+        else if ($("#PK_PaymentmodeId").val() == '0') {
+            $("#tdTransactionNo").hide();
+            $("#thTransactionNO").hide();
+        }
+    }
+    function isNumberOrDecimal(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31
+          && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+</script>
+<script>
+    jQuery('.mydatepicker, #PaymentDate,  .input-group.date').datepicker(
+        {
+            dateFormat: 'dd/mm/yy',
+            changeYear: true,
+            changeMonth: true
+        });
+    $('#add').click(function () {
+        debugger;
+        //jQuery.noConflict()
+        var isAllValid = true;
+        if ($('#PK_CompanyID').val().trim() == '0') {
+            $("#PK_CompanyID").addClass('errortext');
+            $('#PK_CompanyID').focus();
+            isAllValid = false;
+            return false();
+        }
+        if ($('#FK_ExpenseTypeId').val().trim() == '0') {
+            $("#FK_ExpenseTypeId").addClass('errortext');
+            $('#FK_ExpenseTypeId').focus();
+            isAllValid = false;
+            return false();
+        }
+        if ($('#PF_ExpenseNameID').val().trim() == '0') {
+            $("#PF_ExpenseNameID").addClass('errortext');
+            $('#PF_ExpenseNameID').focus();
+            isAllValid = false;
+            return false();
+        }
+        if ($('#PK_PaymentmodeId').val().trim() == '0') {
+            $("#PK_PaymentmodeId").addClass('errortext');
+            $('#PK_PaymentmodeId').focus();
+            isAllValid = false;
+            return false();
+        }
+        if ($('#Amount').val().trim() == '') {
+            $("#Amount").addClass('errortext');
+            $('#Amount').focus();
+            isAllValid = false;
+            return false();
+        }
+        if ($('#PaymentDate').val().trim() == '') {
+            $("#PaymentDate").addClass('errortext');
+            $('#PaymentDate').focus();
+            isAllValid = false;
+            return false();
+        }
+        if ($('#Remark').val().trim() == '') {
+            $("#Remark").addClass('errortext');
+            $('#Remark').focus();
+            isAllValid = false;
+            return false();
+        }
+        debugger
+        if (isAllValid) {
+            jQuery.noConflict()
+            var $newRow = $('#mainrow').clone().removeAttr('id');
+            $('.CompanyID', $newRow).removeClass('errortext').prop('disabled', true).val($('#PK_CompanyID').val());
+            $('.ExpenseTypeId', $newRow).removeClass('errortext').prop('disabled', true).val($('#FK_ExpenseTypeId').val());
+            $('.ExpenseNameID', $newRow).removeClass('errortext').prop('disabled', true).val($('#PF_ExpenseNameID').val());
+            $('.PaymentmodeId', $newRow).removeClass('errortext').prop('disabled', true).val($('#PK_PaymentmodeId').val());
+            $('.TransactionNo', $newRow).removeClass('errortext').prop('disabled', true).val($('#TransactionNo').val());
+            $('.Amount', $newRow).removeClass('errortext').prop('disabled', true).val($('#Amount').val());
+            $('.PaymentDate', $newRow).removeClass('errortext').prop('disabled', true).val($('#PaymentDate').val());
+            $('.Remark', $newRow).removeClass('errortext').prop('disabled', true).val($('#Remark').val());
+            $('#add', $newRow).addClass('remove').val('Remove').removeClass('btn-success').addClass('btn-danger');
+
+            $('#PK_CompanyID,#FK_ExpenseTypeId,#PF_ExpenseNameID,#PK_PaymentmodeId,#Amount,#PaymentDate,#Remark,#TransactionNo,#add', $newRow).removeAttr('id');
+            $('span.error', $newRow).remove();
+
+            $('#orderdetailsItems').append($newRow);
+            //clear select data
+            $('#PK_CompanyID,#FK_ExpenseTypeId,#PK_PaymentmodeId').val('0');
+            $('#PaymentDate,#Remark,#PF_ExpenseNameID,#Amount,#TransactionNo').val('');
+            $('#orderItemError').empty();
+        }
+
+    })
+    $('#orderdetailsItems').on('click', '.remove', function () {
+        $(this).parents('tr').remove();
+    });
+    $('#btnsubmit').click(function () {
+      
+        debugger;
+        jQuery.noConflict()
+        $('#orderItemError').text('');
+        var list = [];
+        var errorItemCount = 0;
+        $('#orderdetailsItems tr').each(function (index, ele) {
+            {
+                var orderItem = {
+                    Fk_CompanyId: ($('.CompanyID', this).val()),
+                    FK_ExpenseTypeId: $('.ExpenseTypeId', this).val(),
+                    PF_ExpenseID: $('.ExpenseNameID', this).val(),
+                    PK_PaymentId: $('.PaymentmodeId', this).val(),
+                    TransactionNo: $('.TransactionNo', this).val(),
+                    Amount: $('.Amount', this).val(),
+                    PaymentDate: $('.PaymentDate', this).val(),
+                    Remark: $('.Remark', this).val()
+                }
+                list.push(orderItem);
+            }
+
+        })
+        console.log(list)
+        if (errorItemCount > 0) {
+            $('#orderItemError').text(errorItemCount + " invalid entry in order item list.");
+            isAllValid = false;
+        }
+
+        if (list.length == 0) {
+            $('#orderItemError').text('At least 1 row data required.');
+            isAllValid = false;
+         
+            return false;
+        }
+
+        //if (isAllValid) {
+        debugger;
+        var data = {
+            AddData: JSON.stringify(list),
+        }
+        debugger
+        var formData = new FormData();
+        formData.append("dataValue", JSON.stringify(data));
+        console.log(formData);
+        $.ajax({
+            type: 'POST',
+            url: "SaveCrExpense",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+              
+                if (response.status) {
+                
+                    // here we will clear the form
+                    list = [];
+
+                    //$('#ExpenseID,#ExpenseName,#TransactionID,#PaymentMode').val('0');
+                    //$('#Check,#Amount,#Date,#Remarks').val('');
+                    //$('#orderdetailsItems').empty();
+                    //$('#orderdetailsItems').hide();
+                }
+                else {
+                    //alert('Error');
+                }
+                $('#submit').text('Save');
+            },
+            error: function (error) {
+                // console.log(error);
+                $('#submit').text('Save');
+            }
+        });
+        $('#submit').text('Save');
+        //}
+    });
+</script>
+
+
+
+

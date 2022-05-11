@@ -1,0 +1,311 @@
+﻿@model AdvertisingERP.Models.Customer
+@{
+    ViewBag.Title = "AddCustomer";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("AddCustomer", "Customer", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+{
+
+    <div class="page-content">
+        <!--breadcrumb-->
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+            <div class="breadcrumb-title pe-3">Customer</div>
+            <div class="ps-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 p-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Add New Customer</li>
+                    </ol>
+                </nav>
+            </div>
+           
+            <div class="ms-auto">
+                <div class="btn-group">
+                    <a href="/Customer/CustomerList" class="btn btn-light px-5">Back To List</a>
+                </div>
+            </div>
+        </div>
+        <hr />
+    
+            <div class="card">
+                @if (@TempData["CustomerError"] != null)
+                {
+                    <div class="alert border-0 alert-dismissible fade show py-2" style="display: @ViewBag.errormsg;">
+                        <div class="d-flex align-items-center">
+                            <div class="font-35 text-white">
+                                <i class="bx bxs-check-circle" style="color:green"></i>
+                            </div>
+                            <div class="ms-3">
+                                <div class="text-white">@TempData["CustomerError"]!</div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+                }
+                <div class="card-body">
+                    <div class="p-4 border rounded">
+                        <div class="row g-3">
+                            <div class="col-md-4 mt-2">
+                                <label for="input-1">Company Name <span style="color: red;">*</span></label>
+                                @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control", @Placeholder = "Company Name" }) @Html.HiddenFor(m => m.CompanyId, new { @Placeholder = "Site Name" })
+                            </div>
+                            <div class="col-md-4 mt-2">
+                                <label for="input-2">
+                                    Nature Of Business
+                                </label>
+                                @Html.TextBoxFor(m => m.NatureOfBusiness, new { @class = "form-control ", @Placeholder = "Nature Of Business" })
+                            </div>
+                            <div class="col-md-4 mt-2">
+                                <label for="input-3">Company Mobile <span style="color: red;">*</span></label>
+                                @Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control ", @Placeholder = "Company Mobile", onkeypress = "return isNumber(event);", @maxlength = "10" })
+                            </div>
+
+                            <div class="col-md-4 mt-2">
+                                <label for="input-4">Company Phone <span style="color: red;">*</span></label>
+                                @Html.TextBoxFor(m => m.PhoneNo, new { @class = "form-control ", @Placeholder = "Company Phone", @onkeypress = "return isNumber(event);" })
+                            </div>
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">Company Email <span style="color: red;">*</span></label>
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control ", @Placeholder = "Company Email" })
+                            </div>
+                            <div class="col-md-4 mt-2"><label for="input-5">Director Name </label>@Html.TextBoxFor(m => m.DirectorName, new { @class = "form-control ", @Placeholder = "Director Name" })</div>
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">Director Mobile </label>
+                                @Html.TextBoxFor(m => m.DirectorContact, new { @class = "form-control ", @Placeholder = "Director Mobile", @onkeypress = "return isNumber(event);", @maxlength = "10" })
+                            </div>
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">Pincode <span style="color: red;">*</span></label>
+                                @Html.TextBoxFor(m => m.Pincode, new { @class = "form-control ", @Placeholder = "Pincode", @onchange = "getstatecity();", @onkeypress = "return isNumber(event);", @maxlength = "6" })
+                            </div>
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">State</label>
+                                @Html.TextBoxFor(m => m.StateName, new { @class = "form-control ", @Placeholder = "State", @readonly = "true" })
+                            </div>
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">City </label>
+                                @Html.TextBoxFor(m => m.City, new { @class = "form-control ", @Placeholder = "City", @readonly = "true" })
+                            </div>
+                            <div class="col-md-8 mt-2">
+                                <label for="input-5">Comapny Address </label>
+                                @Html.TextBoxFor(m => m.Address, new { @class = "form-control ", @Placeholder = "Address" })
+                            </div>
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">Concern Person 1 Name</label>
+                                @Html.TextBoxFor(m => m.ConcertPerson1, new { @class = "form-control ", @Placeholder = "Concern Person 1" })
+                            </div>
+
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">Concern Person 1 Contact No</label>
+                                @Html.TextBoxFor(m => m.ConcertPersonContact1, new { @class = "form-control ", @Placeholder = "Concern Person 1 Contact", @onkeypress = "return isNumber(event);", @maxlength = "10" })
+                            </div>
+
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">Concern Person Name 2</label>
+                                @Html.TextBoxFor(m => m.ConcertPerson2, new { @class = "form-control", @Placeholder = "Concern Person 2" })
+                            </div>
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">Concern Person 2 Contact No </label>
+                                @Html.TextBoxFor(m => m.ConcertPersonContact2, new { @class = "form-control", @Placeholder = "Concern Person 2 Contact", @onkeypress = "return isNumber(event);", @maxlength = "10" })
+                            </div>
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">Bank Name</label>
+                                @Html.TextBoxFor(m => m.BankName, new { @class = "form-control", @Placeholder = "Bank Name" })
+                            </div>
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">Account No </label>
+                                @Html.TextBoxFor(m => m.AccountNo, new { @class = "form-control", @Placeholder = "Account No", @onkeypress = "return isNumber(event);", @maxlength = "20" })
+                            </div>
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">IFSC Code</label>
+                                @Html.TextBoxFor(m => m.IFSCCode, new { @class = "form-control", @Placeholder = "IFSC Code" })
+                            </div>
+
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">Bank Address </label>
+                                @Html.TextBoxFor(m => m.BankAddress, new { @class = "form-control", @Placeholder = "Bank Address" })
+                            </div>
+
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">TAN NO </label>
+                                @Html.TextBoxFor(m => m.TANNO, new { @class = "form-control", @Placeholder = "TAN NO" })
+                            </div>
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">TIN NO </label>
+                                @Html.TextBoxFor(m => m.TINNO, new { @class = "form-control", @Placeholder = "TIN NO" })
+                            </div>
+
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">CIN NO </label>
+                                @Html.TextBoxFor(m => m.CINNO, new { @class = "form-control", @Placeholder = "CIN NO" })
+                            </div>
+
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">STAX NO </label>
+                                @Html.TextBoxFor(m => m.STAXNO, new { @class = "form-control", @Placeholder = "STAX NO" })
+                            </div>
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">
+                                    PAN NO
+                                </label>
+                                @Html.TextBoxFor(m => m.PANNO, new { @class = "form-control", @Placeholder = "PAN NO", @style = "text-transform:uppercase", @maxlength = "10" })
+                            </div>
+
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">
+                                    GSTIN NO
+                                </label>
+                                @Html.TextBoxFor(m => m.GSTIN, new { @class = "form-control", @Placeholder = "GSTIN" })
+                            </div>
+
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">
+                                    ID Type
+                                </label>
+                                @Html.TextBoxFor(m => m.IDType, new { @class = "form-control", @Placeholder = "ID Type" })
+                            </div>
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">
+                                    ID Number
+                                </label>
+                                @Html.TextBoxFor(m => m.IDNumber, new { @class = "form-control", @Placeholder = "ID Number" })
+                            </div>
+
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">
+                                    ID Image
+                                </label>
+                                <input type="file" name="postedFile" onchange="readURL(this)" />
+                                <img id="imgID" class="fileinput-preview thumbnail" style="width: 150px; height: 100px;margin-top:20px;" src="@Model.IdImage" />
+                            </div>
+
+                            <div class="col-md-4 mt-2">
+                                <label for="input-5">
+                                    PAN Image
+                                </label>
+                                <input type="file" name="postedFile" onchange="readURL1(this)" />
+                                <br />
+                                <img id="imgPAN" class="fileinput-preview thumbnail" style="width: 150px; height: 100px;margin-top:20px;" src="@Model.PanImage" />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                @if (Model.CompanyId != null)
+                                {
+                                    <input type="submit" value="Update Customer" class="btn btn-light px-5" name="UpdateCustomer" onclick="return validatecustomer();" />
+                                }
+                                else
+                                {
+                                    <input type="submit" value="Save Customer" class="btn btn-light px-5" name="SaveCustomer" onclick="return validatecustomer();" />
+                                    <a href="/Customer/AddCustomer" class="btn btn-dark">Reset</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function () {
+        $("#divload").css({ display: "none" });
+    });
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $("#imgID").attr("src", e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function readURL1(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $("#imgPAN").attr("src", e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function isNumber(evt) {
+        var charCode = evt.which ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57)) return false;
+
+        return true;
+    }
+
+    function validatecustomer() {
+        $(".errortext").removeClass("errortext");
+        if ($("#CompanyName").val() == "") {
+            $("#CompanyName").addClass("errortext");
+            $("#CompanyName").focus();
+            return false;
+        }
+        if ($("#MobileNo").val() == "") {
+            $("#MobileNo").addClass("errortext");
+            $("#MobileNo").focus();
+            return false;
+        }
+        if ($("#PhoneNo").val() == "") {
+            $("#PhoneNo").addClass("errortext");
+            $("#PhoneNo").focus();
+            return false;
+        }
+        if ($("#Email").val() == "") {
+            $("#Email").addClass("errortext");
+            $("#Email").focus();
+            return false;
+        }
+        if ($("#Pincode").val() == "") {
+            $("#Pincode").addClass("errortext");
+            $("#Pincode").focus();
+            return false;
+        }
+        if ($("#Address").val() == "") {
+            $("#Address").addClass("errortext");
+            $("#Address").focus();
+            return false;
+        }
+        if ($("#IDNumber").val() == "") {
+            $("#IDNumber").addClass("errortext");
+            $("#IDNumber").focus();
+            return false;
+        }
+        $("#divload").css({ display: "" });
+    }
+
+    function getstatecity() {
+        $("#divload").css({ display: "" });
+        $.ajax({
+            url: "/Master/GetStateCity",
+            Type: "Get",
+            DataType: "JSON",
+            data: { PinCode: $("#Pincode").val() },
+            success: function (data) {
+                if (data.Result == "1") {
+                    $("#StateName").val(data.StateName);
+                    $("#City").val(data.City);
+                    $("#divload").css({ display: "none" });
+                } else {
+                    $("#StateName").val("");
+                    $("#City").val("");
+                    $("#PinCode").val("");
+                    alert("Invalid PinCode");
+                    $("#PinCode").focus();
+                    $("#divload").css({ display: "none" });
+                }
+            },
+        });
+    }
+</script>
+

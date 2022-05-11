@@ -1,0 +1,1552 @@
+﻿@model AdvertisingERP.Models.SaleOrder
+
+@{
+    ViewBag.Title = "SaleOrderDetails";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<style>
+    .zoom {
+        background-color: none;
+        transition: transform .2s;
+        width: 100px;
+        height: 100px;
+    }
+
+        .zoom:hover {
+            transform: scale(3); /* (300% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+        }
+</style>
+@using (Html.BeginForm("SaleOrderDetails", "SaleOrder", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+{
+    <div class="page-content">
+        <!--breadcrumb-->
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+            <div class="breadcrumb-title pe-3">Sale Order</div>
+            <div class="ps-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 p-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Generate Sale Order</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="ms-auto">
+                <div class="btn-group">
+                    <a href="/SaleOrder/GenerateSaleOrder" class="btn btn-light list-button px-5 float-right">Sale Order No List</a>
+
+                </div>
+            </div>
+        </div>
+
+        <hr />
+        <div class="card">
+            <div class="card-body">
+                <div class="p-4 border rounded">
+                    <div class="row  g-3">
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">Sale Order No<span style="color: red">*</span></label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(m => m.SalesOrderNo, new { @class = "form-control", @Placeholder = "Sale Order No", @readonly = "readonly" })
+                                    @Html.HiddenFor(m => m.SalesOrderNoID)
+                                    @Html.HiddenFor(m => m.PK_SalesOrderID)
+
+                                    @Html.HiddenFor(m => m.SaleOrderIDEncrypt)
+                                    @Html.HiddenFor(m => m.SaleOrderNoEncrypt)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">Order Date<span style="color: red">*</span></label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(m => m.OrderDate, new { @class = "form-control datepicker", @Placeholder = "Order Date" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">Payment Terms(No Of Days) <span style="color: red">*</span></label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(m => m.PaymentTermsID, new { @class = "form-control", @placeholder = "Number Of Days", @onkeypress = "return isNumber(event);" })
+                                    @*@Html.DropDownListFor(m => m.PaymentTermsID, new SelectList(ViewBag.ddlPaymentTerms, "Value", "Text"), new { @class = "form-control" })*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">Customer <span style="color: red">*</span></label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(m => m.CustomerName, new { @class = "form-control", @Placeholder = "Customer Name", @onchange = "return getCustomerCampaigns(this);" })
+                                    @Html.HiddenFor(m => m.CustomerCode)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    @Html.TextAreaFor(m => m.CustomerAddress, new { @class = "form-control", @readonly = "fdsf", @Placeholder = "CustomerAddress" })
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">Campaign No <span style="color: red">*</span></label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(m => m.CampaignNumber, new { @class = "form-control", @Placeholder = "Campaign No" })
+                                    @Html.HiddenFor(m => m.CampaignID)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">Sales Person <span style="color: red">*</span></label>
+                                <div class="col-md-9">
+                                    @Html.DropDownListFor(m => m.SalesPersonID, new SelectList(ViewBag.ddlSalesPerson, "Value", "Text"), new { @class = "form-select" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">Operation Executive <span style="color: red">*</span></label>
+                                <div class="col-md-9">
+                                    @Html.DropDownListFor(m => m.OperationExecutiveID, new SelectList(ViewBag.ddlOperationExecutive, "Value", "Text"), new { @class = "form-select" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">Billing Snaps <span style="color: red">*</span></label>
+                                <div class="col-md-9">
+                                    @Html.DropDownListFor(m => m.BillingSnapsID, new SelectList(ViewBag.ddlBillingSnaps, "Value", "Text"), new { @class = "form-select" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">PO Received ? <span style="color: red">*</span></label>
+                                <div class="col-md-9">
+                                    @Html.DropDownListFor(m => m.POReceived, new SelectList(ViewBag.ddlPOReceived, "Value", "Text"), new { @class = "form-select", @onchange = "return onPOchange();" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row" id="divPOImage" style="display: none">
+                                <label class="control-label col-md-3">PO Image <span style="color: red">*</span></label>
+                                <div class="col-md-9">
+                                    <input type="file" name="postedFile" id="Image" onchange="readURL(this)" />
+                                    <input type="hidden" id="hdPOImagePath" name="hdPOImagePath" />
+                                    @*@if (Model.POImagePath != null)
+                                        {
+                                            @Html.HiddenFor(m => m.POImagePath)
+                                        }*@
+                                    <a href="@Model.POImagePath" target="_blank">
+                                        <img id="ContentPlaceHolder1_imgProductImage" src="@Model.POImagePath" class="fileinput-preview thumbnail" style="width: 150px; height: 100px;" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">Service <span style="color: red">*</span></label>
+                                <div class="col-md-9">
+                                    @Html.DropDownListFor(m => m.ServiceID, new SelectList(ViewBag.ddlServices, "Value", "Text"), new { @class = "form-select", @onchange = "return onServiceChange();" })
+                                    <input type="hidden" id="hdServiceID" name="hdServiceID" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row" id="divPONumber" style="display: none">
+                                <label class="control-label col-md-3">PO Number <span style="color: red">*</span></label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(m => m.PONumber, new { @class = "form-control", @Placeholder = "PO Number" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" id="divState" style="display:none">
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">Select State <span style="color: red">*</span></label>
+                                <div class="col-md-9">
+                                    @Html.DropDownListFor(m => m.StateName, new SelectList(ViewBag.ddlState, "Value", "Text"), new { @class = "form-control", @onchange = "return stateChange();" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="p-4 border rounded">
+                    <div class="table-responsive">
+                        <table id="example2" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Select City</th>
+                                    <th>Select Vendor</th>
+                                    <th><span id="spSelectSite">Select Site</span></th>
+                                    <th>Description</th>
+                                    <th>HSN Code</th>
+                                    <th>Select Media Type</th>
+                                    <th><span id="spStartDate">Start Date</span></th>
+                                    <th><span id="spEndDate">End Date</span></th>
+                                    <th>Width</th>
+                                    <th>Height</th>
+                                    <th>Side</th>
+                                    <th>Unit</th>
+                                    <th>Area</th>
+                                    <th>Amt</th>
+                                    <th>Rate (sqft/each)</th>
+                                    <th>Amount</th>
+                                    <th>TDS</th>
+                                    <th>Discount</th>
+                                    <th>CGST</th>
+                                    <th>SGST</th>
+                                    <th>IGST</th>
+                                    <th>Final Amount</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        @Html.DropDownListFor(m => m.CityID, new SelectList(ViewBag.ddlCity, "Value", "Text"), new { @class = "form-select", @onchange = "return onCityChange();", @style = "width:150px" })
+                                    </td>
+                                    <td>
+                                        @Html.DropDownListFor(m => m.VendorID, new SelectList(ViewBag.ddlVendors, "Value", "Text"), new { @class = "form-select", @onchange = "return onVendorChange();", @style = "width:150px" })
+                                        <input type="text" id="txtVendorName" readonly="readonly" style="width: 150px; display: none" />
+                                        <input type="hidden" id="hdVendorID" />
+                                        <input type="hidden" id="hdVendorName" />
+                                    </td>
+                                    <td>
+                                        @Html.HiddenFor(m => m.SaleOrderDetailsID)
+                                        @Html.HiddenFor(m => m.LineStatus)
+                                        @Html.DropDownListFor(m => m.SiteID, new SelectList(ViewBag.ddlSites, "Value", "Text"), new { @class = "form-select", onchange = "return fonSiteChange();", @style = "width:150px" })
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(m => m.Description, new { @class = "form-control", @placeholder = "Description", @style = "width:150px", @value = "" })
+                                    </td>
+                                    <td>@Html.TextBoxFor(m => m.HSNCode, new { @class = "form-control", @placeholder = "HSN/SAC Code", @style = "width:150px" })</td>
+                                    <td>
+                                        @Html.DropDownListFor(m => m.MediaTypeID, new SelectList(ViewBag.ddlMediaType, "Value", "Text"), new { @class = "form-control", @style = "width:150px" })
+                                    </td>
+                                    <td>@Html.TextBoxFor(m => m.FromDate, new { @class = "form-control mydatepicker", @placeholder = "Start Date", @style = "width:150px" })</td>
+                                    <td>@Html.TextBoxFor(m => m.ToDate, new { @class = "form-control mydatepicker", @placeholder = "End Date", @style = "width:150px" })</td>
+                                    <td>@Html.TextBoxFor(m => m.Width, new { @class = "form-control", @placeholder = "Width", @onchange = "return calculateArea()", @onkeypress = "return isNumber(event);", @style = "width:150px" })</td>
+                                    <td>@Html.TextBoxFor(m => m.Height, new { @class = "form-control", @placeholder = "Height", @onchange = "return calculateArea()", @onkeypress = "return isNumber(event);", @style = "width:150px" })</td>
+                                    <td>@Html.TextBoxFor(m => m.Side, new { @class = "form-control", @placeholder = "Side", @onchange = "return calculateAmount1()", @onkeypress = "return isNumber(event);", @style = "width:150px" })</td>
+                                    <td>@Html.TextBoxFor(m => m.Unit, new { @class = "form-control", @placeholder = "Unit", @onchange = "return calculateAmount1()", @onkeypress = "return isNumber(event);", @style = "width:150px" })</td>
+                                    <td>@Html.TextBoxFor(m => m.Area, new { @class = "form-control", @placeholder = "Area", @onchange = "return calculateAmount1()", @onkeypress = "return isNumber(event);", @style = "width:150px" })</td>
+                                    <td>@Html.TextBoxFor(m => m.Amt, new { @class = "form-control", @placeholder = "Calculate Amount", @onchange = "return calculateRateFromAmount()", @onkeypress = "return isNumber(event);", @style = "width:150px" })</td>
+                                    <td>@Html.TextBoxFor(m => m.Rate, new { @class = "form-control", @placeholder = "Rate", @onchange = "return calculateAmount1()", @onkeypress = "return isNumber(event);", @style = "width:150px" })</td>
+                                    <td>@Html.TextBoxFor(m => m.TotalAmount, new { @class = "form-control", @placeholder = "Amount", @readonly = "readonly", @style = "width:150px" })</td>
+                                    <td>@Html.TextBoxFor(m => m.TDS, new { @class = "form-control", @placeholder = "TDS", @onchange = "return calculateAmount2()", @onkeypress = "return isNumber(event);", @style = "width:150px" })</td>
+                                    <td>@Html.TextBoxFor(m => m.Discount, new { @class = "form-control", @placeholder = "Discount", @onchange = "return calculateAmount2()", @onkeypress = "return isNumber(event);", @style = "width:150px" })</td>
+                                    <td>@Html.TextBoxFor(m => m.CGST, new { @class = "form-control", @placeholder = "CGST", @onchange = "return calculateAmount3()", @onkeypress = "return isNumber(event);", @style = "width:150px" })</td>
+                                    <td>@Html.TextBoxFor(m => m.SGST, new { @class = "form-control", @placeholder = "SGST", @onchange = "return calculateAmount3()", @onkeypress = "return isNumber(event);", @style = "width:150px" })</td>
+                                    <td>@Html.TextBoxFor(m => m.IGST, new { @class = "form-control", @placeholder = "IGST", @onchange = "return calculateAmount3()", @onkeypress = "return isNumber(event);", @style = "width:150px" })</td>
+                                    <td>@Html.TextBoxFor(m => m.FinalAmount, new { @class = "form-control", @placeholder = "Final Amount", @readonly = "readonly", @style = "width:150px" })</td>
+                                    <td>
+                                        @if (Model.PostStatus == "True")
+                                        {
+                                            <label class="control-label bg-primary">SO Posted</label>
+                                        }
+                                        else
+                                        {
+                                            <input type="submit" id="btnAddLine" name="btnAddLine" value="Add Line" class="btn btn-light list-button" onclick="return validateLine();" />
+                               <input type="submit" id="btnUpdateLine" name="btnUpdateLine" style="display: none" value="Update" onclick="return updateLine();"   class="btn btn-light list-button" />
+                                        }
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table id="example2" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Site Info</th>
+                                    <th>Site Image</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span id="spSiteInfo"></span>
+                                    </td>
+                                    <td>
+                                        <div class="zoom">
+                                            <img id="imgSite" height="100" width="100" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table id="example" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>HSN/SAC Code</th>
+                                    <th>Service Name</th>
+                                    <th>City</th>
+                                    <th>Vendor Name</th>
+                                    <th>Site Name</th>
+                                    <th>Description</th>
+                                    <th>Media Type</th>
+                                    <th><span id="spStartDateDisplay">Start Date</span></th>
+                                    <th><span id="spEndDateDisplay">End Date</span></th>
+                                    <th>Width</th>
+                                    <th>Height</th>
+                                    <th>Side</th>
+                                    <th>Unit</th>
+                                    <th>Area</th>
+                                    <th>Rate</th>
+                                    <th>Amount</th>
+                                    <th>TDS</th>
+                                    <th>Discount</th>
+                                    <th>CGST</th>
+                                    <th>SGST</th>
+                                    <th>IGST</th>
+                                    <th>Final Amount</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    if (Model.lstsaleorder != null)
+                                    {
+                                        foreach (var item in Model.lstsaleorder)
+                                        {
+                                            <tr style="background-color:@item.CssClass">
+                                                <td>@item.HSNCode</td>
+                                                <td>@item.ServiceName</td>
+                                                <td>@item.City</td>
+                                                <td>@item.VendorName</td>
+                                                <td style="width: 150px">@item.SiteName</td>
+                                                <td>@item.DescriptionDisplay</td>
+                                                <td>@item.MediaType</td>
+                                                <td>@item.FromDate</td>
+                                                <td>@item.ToDate</td>
+                                                <td>@item.Width</td>
+                                                <td>@item.Height</td>
+                                                <td>@item.Side</td>
+                                                <td>@item.Unit</td>
+                                                <td>@item.Area</td>
+                                                <td>@item.Rate</td>
+                                                <td>@item.TotalAmount</td>
+                                                <td>@item.TDS</td>
+                                                <td>@item.Discount</td>
+                                                <td>@item.CGST</td>
+                                                <td>@item.SGST</td>
+                                                <td>@item.IGST</td>
+                                                <td>@item.FinalAmount</td>
+                                                <td>
+                                                    @if (Model.PostStatus == "False")
+                                                    {
+                                                        <a href="#" class="btn btn-sm btn-info" onclick="return editLine(@item.SaleOrderDetailsID,'@item.LineStatus');">Edit</a>
+                                                        <a onclick="return deleteLine(@item.SaleOrderDetailsID,'@item.LineStatus');" class="btn btn-sm btn-danger">Delete</a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <label class="control-label bg-success">@item.PONumber</label>
+                                                    }
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row  g-3">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-12">
+                            <label>Total : </label>&nbsp; &#8377;  @ViewBag.SUM
+                        </div>
+                        <div class="col-md-offset-3 col-md-12">
+                            @if (Model.isPOGenerated != "True")
+                            {
+                                //if (Model.PK_SalesOrderID != null)
+                                //{
+                                if (Model.SOStatus == "P")
+                                {
+                                    if (Model.PostStatus == "False")
+                                    {
+                                        <input type="submit" value="Post Sale Order" class="btn btn-light list-button" id="UpdateSaleOrder" name="UpdateSaleOrder" onclick="return validateFormForPostSO();" />
+                                    }
+                                    else
+                                    {
+                                        <div class="alert alert-danger">
+                                            Sale Order cannot be Edited after it is Posted.
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <input type="submit" value="Save Sale Order" class="btn btn-light list-button px-5" id="SaveSaleOrder" name="SaveSaleOrder" onclick="return validateVendor();" />
+                                }
+                                //}
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+
+        </div>
+    </div>
+
+}
+
+<script>
+    jQuery('.mydatepicker, #OrderDate, .input-group.date').datepicker(
+        {
+            dateFormat: 'dd/mm/yy',
+            changeYear: true,
+            changeMonth: true
+        });
+</script>
+<script>
+
+    $(document).ready(function () {
+        $('#CityID').val("0");
+        $('#VendorID').val("0");
+        $('#SiteID').val("0");
+        $('#MediaTypeID').val("0");
+        $('#Width').val("");
+        $('#Height').val("");
+        $('#Side').val("");
+        $('#Unit').val("");
+        $('#Area').val("");
+        $('#Amt').val("");
+        $('#Description').val("");
+        $('#FromDate').val("");
+        $('#ToDate').val("");
+        $('#TDS').val("");
+        $('#Discount').val("");
+        $('#CGST').val("");
+        $('#SGST').val("");
+        $('#IGST').val("");
+        $('#Rate').val("");
+        $('#TotalAmount').val("");
+        $('#FinalAmount').val("");
+
+        $("#divload").css({ 'display': 'none' });
+        $('#SaveSaleOrder').show();
+
+        var cityuse = [];
+        $.ajax({
+            url: '/Compaign/GetAllCustomer',
+            type: 'Post',
+            success: function (response) {
+                if (response != null) {
+                    $(response).each(function (index, item) { // GETTING ERROR HERE
+                        cityuse.push(item.CompanyName + "(" + item.CustomerCode + ")");
+                    });
+
+                    $('#CustomerName').autocomplete({
+                        source: cityuse,
+                        select: function (event, ui) {
+                            var str = ui.item.label;
+                            var afterComma = str.substr(str.indexOf("(") + 1);
+                            var citycode = afterComma.substr(0, afterComma.length - 1);
+                            $('#CustomerCode').val(citycode);
+                        }
+                    })
+                }
+                else {
+
+                }
+            }, error: function () { alert('Some Thing wrong!'); }
+        });
+
+        var poValue = $('#POReceived').val();
+        var poimguploaded = $('#POImagePath').val();
+
+        if (poimguploaded != null && poimguploaded != '') {
+            $('#POImagePath').val(poimguploaded);
+            document.getElementById("hdPOImagePath").value = poimguploaded;
+        }
+
+        var serviceID = $('#ServiceID').val();
+        if (serviceID != null && serviceID != '' && serviceID != '0') {
+            $('#ServiceID').val(serviceID);
+            document.getElementById("hdServiceID").value = serviceID;
+            $('#ServiceID').attr("disabled", "disabled");
+
+            $.ajax({
+                url: '/SaleOrder/ServiceType', type: 'post', dataType: 'json',
+                data: { 'serviceID': serviceID },
+                success: function (data) {
+                    $("#divload").css({ 'display': 'none' });
+                    if (data.ServiceType == "Single") {
+                        $('#FromDate').attr("disabled", false);
+                        $('#ToDate').attr("disabled", "disabled");
+                        document.getElementById('spEndDate').innerHTML = "NA";
+                    }
+                    else if (data.ServiceType == "Double") {
+                        $('#FromDate').attr("disabled", false);
+                        $('#ToDate').attr("disabled", false);
+                        document.getElementById('spEndDate').innerHTML = "End Date";
+                    }
+
+                    if (data.Result == "1") {
+
+                        $("#MediaTypeID").html("");
+                        $("#MediaTypeID").empty();
+                        $("#MediaTypeID").append($('<option></option>').val(0).html('Select Media Type'));
+                        $.each(data.lstMediaType, function (index, Sectorcount) {
+                            $("#MediaTypeID").append(
+                                  $('<option></option>').val(Sectorcount.Value).html(Sectorcount.Text));
+                        });
+
+                    }
+                }
+            });
+        }
+
+        var serviceType = $('#ServiceID').find('option:selected').text();
+        //alert("Selected Service : " + serviceType);
+        if (serviceID != "0") {
+            if (serviceType == "Others") {
+                document.getElementById('spStartDate').innerHTML = "Start Date";
+                document.getElementById('spStartDateDisplay').innerHTML = "Start Date";
+            }
+            else {
+                document.getElementById('spStartDateDisplay').innerHTML = serviceType + " Date";
+                document.getElementById('spStartDate').innerHTML = serviceType + " Date";
+            }
+        }
+        else {
+            document.getElementById('spStartDate').innerHTML = "Start Date";
+            document.getElementById('spStartDateDisplay').innerHTML = "Start Date";
+        }
+
+        if (serviceType == "Retail Branding") {
+            $('#divState').show();
+            $('#StateName').attr("disabled", "disabled");
+            $('#SiteID').attr("disabled", "disabled");
+            $('#Width').prop("readonly", false);
+            $('#Height').prop("readonly", false);
+            $('#ToDate').prop("readonly", true);
+
+            document.getElementById('spStartDate').innerHTML = serviceType + " Date";
+            document.getElementById('spEndDate').innerHTML = "NA";
+            document.getElementById('spSelectSite').innerText = "NA";
+
+            //Load Cities according to the Previous Selected State
+            var statename = $('#StateName').val();
+
+            $.ajax({
+                url: '/SaleOrder/StateChange', type: 'post', dataType: 'json',
+                data: { 'statename': statename },
+                success: function (data) {
+                    if (data.Result == "1") {
+
+                        $("#CityID").html(""); // clear before appending new list
+                        $("#CityID").empty();
+                        $("#CityID").append(
+                              $('<option></option>').val(0).html('Select City'));
+                        $.each(data.lstVendors, function (index, Sectorcount) {
+                            $("#CityID").append(
+                                  $('<option></option>').val(Sectorcount.Value).html(Sectorcount.Text));
+
+                        });
+                    }
+                }
+            });
+            //Load Cities according to the Previous Selected State
+        }
+        else {
+            $.ajax({
+                url: '/SaleOrder/BindAllCityList', type: 'post', dataType: 'json',
+                //data: { 'statename': statename },
+                success: function (data) {
+                    $("#divload").css({ 'display': 'none' });
+                    if (data.Result == "1") {
+
+                        $("#CityID").html(""); // clear before appending new list
+                        $("#CityID").empty();
+                        $("#CityID").append(
+                              $('<option></option>').val(0).html('Select City'));
+                        $.each(data.lstVendors, function (index, Sectorcount) {
+                            $("#CityID").append(
+                                  $('<option></option>').val(Sectorcount.Value).html(Sectorcount.Text));
+
+                        });
+
+                    }
+                }
+            });
+            $('#Width').prop("readonly", true);
+            $('#Height').prop("readonly", true);
+            $('#ToDate').prop("readonly", false);
+            $('#divState').hide();
+        }
+
+        if (poValue == "1") {
+            $('#divPONumber').show();
+            $('#divPOImage').show();
+        }
+        else if (poValue == "2") {
+            $('#divPONumber').hide();
+            $('#divPOImage').hide();
+        }
+        else if (poValue == "3") {
+            $('#divPONumber').hide();
+            $('#divPOImage').show();
+        }
+
+    });
+
+    function getCustomerCampaigns(customerID) {
+        debugger
+        $("#divload").css({ 'display': '' });
+        var customerCode = customerID.value;
+        var afterComma = customerCode.substr(customerCode.indexOf("(") + 1);
+        var citycode = afterComma.substr(0, afterComma.length - 1);
+
+        //alert(citycode);
+        var campaigns = [];
+        $.ajax({
+            url: '/SaleOrder/GetAllCampaigns',
+            type: 'Post',
+            data: { 'customerCode': citycode },
+            success: function (response) {
+                $("#divload").css({ 'display': 'none' });
+                if (response != null) {
+                    $(response.lstCompaign).each(function (index, item) { // GETTING ERROR HERE
+                        campaigns.push(item.CreativeName + "(" + item.CampaignNo + ")");
+                    });
+
+                    $('#CampaignNumber').autocomplete({
+                        source: campaigns,
+                        select: function (event, ui) {
+                            var str = ui.item.label;
+                            var afterComma = str.substr(str.indexOf("(") + 1);
+                            var citycode = afterComma.substr(0, afterComma.length - 1);
+                            $('#CampaignID').val(citycode);
+
+                        }
+                    })
+                    $('#CustomerAddress').val(response.Address);
+                }
+                else {
+
+                }
+            }, error: function () { alert('Some Thing wrong !'); }
+        });
+    }
+
+    function validateLine() {
+        $(".errortext").removeClass("errortext");
+        //Validate SO Details before adding Lines
+        if ($('#SalesOrderNo').val() == '') {
+            $("#SalesOrderNo").addClass('errortext');
+            $('#SalesOrderNo').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#OrderDate').val() == '') {
+            $("#OrderDate").addClass('errortext');
+            $('#OrderDate').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#PaymentTermsID').val() == "") {
+            $("#PaymentTermsID").addClass('errortext');
+            $('#PaymentTermsID').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#CustomerName').val() == '') {
+            $("#CustomerName").addClass('errortext');
+            $('#CustomerName').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#CampaignNumber').val() == '') {
+            $("#CampaignNumber").addClass('errortext');
+            $('#CampaignNumber').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#SalesPersonID').val() == "0") {
+            $("#SalesPersonID").addClass('errortext');
+            $('#SalesPersonID').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#OperationExecutiveID').val() == "0") {
+            $("#OperationExecutiveID").addClass('errortext');
+            $('#OperationExecutiveID').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#BillingSnapsID').val() == "0") {
+            $("#BillingSnapsID").addClass('errortext');
+            $('#BillingSnapsID').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+
+        if ($('#POReceived').val() == "0") {
+            $("#POReceived").addClass('errortext');
+            $('#POReceived').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+
+        if ($('#POReceived').val() == "1") {
+            if ($('#PONumber').val() == '') {
+                $("#PONumber").addClass('errortext');
+                $('#PONumber').focus();
+                $("#divload").css({ 'display': 'none' });
+                return false;
+            }
+        }
+        else if ($('#POReceived').val() == "3") {
+            if ($('#POImagePath').val() == '') {
+                $("#POImagePath").addClass('errortext');
+                $('#POImagePath').focus();
+                $("#divload").css({ 'display': 'none' });
+                return false;
+            }
+        }
+        //Validate SO Details before adding Lines
+        if ($('#ServiceID').val() == "0") {
+            $("#ServiceID").addClass('errortext');
+            $("#divload").css({ 'display': 'none' });
+            $('#ServiceID').focus();
+            return false;
+        }
+        if ($('#CityID').val() == "0") {
+            $("#CityID").addClass('errortext');
+            $('#CityID').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#VendorID').val() == "0") {
+            $("#VendorID").addClass('errortext');
+            $("#divload").css({ 'display': 'none' });
+            $('#VendorID').focus();
+            return false;
+        }
+
+        var serviceType = $('#ServiceID').find('option:selected').text();
+        if (serviceType != "Retail Branding") {
+            if ($('#SiteID').val() == "0") {
+                $("#SiteID").addClass('errortext');
+                $('#SiteID').focus();
+                $("#divload").css({ 'display': 'none' });
+                return false;
+            }
+        }
+
+        if ($('#MediaTypeID').val() == "0") {
+            $("#MediaTypeID").addClass('errortext');
+            $('#MediaTypeID').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#FromDate').val() == "") {
+            $("#FromDate").addClass('errortext');
+            $('#FromDate').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#Width').val() == "") {
+            $("#Width").addClass('errortext');
+            $('#Width').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#Height').val() == "") {
+            $("#Height").addClass('errortext');
+            $('#Height').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#Side').val() == "") {
+            $("#Side").addClass('errortext');
+            $('#Side').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#Unit').val() == "") {
+            $("#Unit").addClass('errortext');
+            $('#Unit').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#Area').val() == "") {
+            $("#Area").addClass('errortext');
+            $('#Area').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#Amt').val() == "") {
+            $("#Amt").addClass('errortext');
+            $('#Amt').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#Rate').val() == "") {
+            $("#Rate").addClass('errortext');
+            $('#Rate').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#TotalAmount').val() == "") {
+            $("#TotalAmount").addClass('errortext');
+            $('#TotalAmount').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#TDS').val() == "") {
+            $("#TDS").addClass('errortext');
+            $('#TDS').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#Discount').val() == "") {
+            $("#Discount").addClass('errortext');
+            $('#Discount').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#CGST').val() == "") {
+            $("#CGST").addClass('errortext');
+            $('#CGST').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#SGST').val() == "") {
+            $("#SGST").addClass('errortext');
+            $('#SGST').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#IGST').val() == "") {
+            $("#IGST").addClass('errortext');
+            $('#IGST').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#FinalAmount').val() == "") {
+            $("#FinalAmount").addClass('errortext');
+            $('#FinalAmount').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+
+        var serviceID = $('#ServiceID').val();
+        if (serviceID != null && serviceID != '' && serviceID != '0') {
+            $('#ServiceID').val(serviceID);
+            document.getElementById("hdServiceID").value = serviceID;
+            $('#ServiceID').attr("disabled", "disabled");
+        }
+
+    }
+
+    function editLine(saleorderdetailsid, linestatus) {
+        $.ajax({
+            url: '/SaleOrder/LoadDataForEdit',
+            type: 'Post',
+            data: { 'saleorderdetailsid': saleorderdetailsid, 'linestatus': linestatus },
+            success: function (response) {
+                //Bind DDLs to select the Previous filled Data for edit
+                $("#MediaTypeID").html(""); // clear before appending new list
+                $("#MediaTypeID").empty();
+                $("#MediaTypeID").append($('<option></option>').val(0).html('Select Media Type'));
+                $.each(response.lstMediaType, function (index, Sectorcount) {
+                    $("#MediaTypeID").append(
+                          $('<option></option>').val(Sectorcount.Value).html(Sectorcount.Text));
+                });
+
+                $("#VendorID").html(""); // clear before appending new list
+                $("#VendorID").empty();
+                $("#VendorID").append($('<option></option>').val(0).html('Select Vendor'));
+                $.each(response.lstVendors, function (index, Sectorcount) {
+                    $("#VendorID").append(
+                          $('<option></option>').val(Sectorcount.Value).html(Sectorcount.Text));
+                });
+
+                $("#SiteID").html(""); // clear before appending new list
+                $("#SiteID").empty();
+                $("#SiteID").append($('<option></option>').val(0).html('Select Site'));
+                $.each(response.ddlSites, function (index, Sectorcount) {
+                    $("#SiteID").append(
+                          $('<option></option>').val(Sectorcount.Value).html(Sectorcount.Text));
+
+                });
+                //Bind DDLs to select the Previous filled Data for edit
+
+                //$('#SiteID').attr("disabled", "disabled");
+                $('#SaleOrderDetailsID').val(saleorderdetailsid);
+                $('#LineStatus').val(linestatus);
+                $('#HSNCode').val(response.HSNCode);
+                $('#CityID').val(response.City);
+                $('#SiteID').val(response.SiteID);
+                $('#Description').val(response.Description);
+                $('#ServiceID').val(response.ServiceID);
+                $('#MediaTypeID').val(response.MediaTypeID);
+                $('#VendorID').val(response.VendorID);
+                $('#FromDate').val(response.FromDate);
+                $('#ToDate').val(response.ToDate);
+                $('#Width').val(response.Width);
+                $('#Height').val(response.Height);
+                $('#Side').val(response.Side);
+                $('#Unit').val(response.Unit);
+                $('#Area').val(response.Area);
+                $('#Rate').val(response.Rate);
+                $('#TotalAmount').val(response.Amt);
+                $('#TDS').val(response.TDS);
+                $('#Discount').val(response.Discount);
+                $('#CGST').val(response.CGST);
+                $('#SGST').val(response.SGST);
+                $('#IGST').val(response.IGST);
+                $('#FinalAmount').val(response.FinalAmount);
+                $('#Amt').val(response.Amt);
+                $('#btnUpdateLine').show();
+                $('#btnAddLine').hide();
+
+                var serviceName = response.ServiceName;
+                if (serviceName == "Fabrication" || serviceName == "Printing") {
+                    document.getElementById('spStartDate').innerHTML = serviceName + " Date";
+                }
+                else {
+                    document.getElementById('spStartDate').innerHTML = "Start Date";
+                }
+
+                if (serviceName == "Retail Branding") {
+                    $('#divState').show();
+                }
+                else {
+                    $('#divState').hide();
+                }
+
+                if (response.ServiceType == "Single") {
+                    $('#FromDate').attr("disabled", false);
+                    $('#ToDate').attr("disabled", "disabled");
+                    document.getElementById('spEndDate').innerHTML = "NA";
+                }
+                else if (response.ServiceType == "Double") {
+                    $('#FromDate').attr("disabled", false);
+                    $('#ToDate').attr("disabled", false);
+                    document.getElementById('spEndDate').innerHTML = "End Date";
+                }
+            }
+        });
+
+    }
+
+    function deleteLine(saleorderdetailsid, linestatus) {
+        var r = confirm("Are you sure you want to delete this Line ?");
+        if (r == true) {
+            $.ajax({
+                url: '/SaleOrder/DeleteSaleOrderLine',
+                type: 'Post',
+                data: { 'id': saleorderdetailsid, 'st': linestatus },
+                success: function (response) {
+                    if (response.Result == "1") {
+                        alert("Line deleted");
+                        window.location.href = document.URL + "?SaleOrderId=" + $('#SaleOrderIDEncrypt').val() + "&no=" + $('#SaleOrderNoEncrypt').val();
+                    }
+                    else {
+                        alert(response.Result);
+                    }
+                }
+            });
+        }
+    }
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#ContentPlaceHolder1_imgProductImage')
+                    .attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function onPOchange() {
+        $("#divload").css({ 'display': '' });
+        var poValue = $('#POReceived').val();
+
+        if (poValue == "1") {
+            $('#divPONumber').show();
+            $('#divPOImage').show();
+        }
+        else if (poValue == "2") {
+            $('#divPONumber').hide();
+            $('#divPOImage').hide();
+        }
+        else if (poValue == "3") {
+            $('#divPONumber').hide();
+            $('#divPOImage').show();
+        }
+        $("#divload").css({ 'display': 'none' });
+    }
+
+    function stateChange() {
+        var statename = $('#StateName').val();
+
+        $.ajax({
+            url: '/SaleOrder/StateChange', type: 'post', dataType: 'json',
+            data: { 'statename': statename },
+            success: function (data) {
+                if (data.Result == "1") {
+
+                    $("#CityID").html(""); // clear before appending new list
+                    $("#CityID").empty();
+                    $("#CityID").append(
+                          $('<option></option>').val(0).html('Select City'));
+                    $.each(data.lstVendors, function (index, Sectorcount) {
+                        $("#CityID").append(
+                              $('<option></option>').val(Sectorcount.Value).html(Sectorcount.Text));
+
+                    });
+                }
+            }
+        });
+        $("#divload").css({ 'display': 'none' });
+    }
+
+    function onServiceChange() {
+        $("#divload").css({ 'display': '' });
+        $('#CityID').val(0);
+        $('#VendorID').val(0);
+        $('#SiteID').val(0);
+        var ServiceID = $('#ServiceID').val();
+        var serviceType = $('#ServiceID').find('option:selected').text();
+
+        if (serviceType == "Others") {
+            document.getElementById('spStartDate').innerHTML = "Start Date";
+            document.getElementById('spStartDateDisplay').innerHTML = "Start Date";
+        }
+        else {
+            document.getElementById('spStartDateDisplay').innerHTML = serviceType + " Date";
+            document.getElementById('spStartDate').innerHTML = serviceType + " Date";
+        }
+
+        if (serviceType == "Retail Branding") {
+            $('#divState').show();
+            $('#SiteID').attr("disabled", "disabled");
+            $('#Width').prop("readonly", false);
+            $('#Height').prop("readonly", false);
+            $('#ToDate').prop("readonly", true);
+
+            document.getElementById('spSelectSite').innerText = "NA";
+        }
+        else {
+            $.ajax({
+                url: '/SaleOrder/BindAllCityList', type: 'post', dataType: 'json',
+                //data: { 'statename': statename },
+                success: function (data) {
+                    $("#divload").css({ 'display': 'none' });
+                    if (data.Result == "1") {
+
+                        $("#CityID").html(""); // clear before appending new list
+                        $("#CityID").empty();
+                        $("#CityID").append(
+                              $('<option></option>').val(0).html('Select City'));
+                        $.each(data.lstVendors, function (index, Sectorcount) {
+                            $("#CityID").append(
+                                  $('<option></option>').val(Sectorcount.Value).html(Sectorcount.Text));
+
+                        });
+
+                    }
+                }
+            });
+            $('#SiteID').attr("disabled", false);
+            $('#Width').prop("readonly", true);
+            $('#Height').prop("readonly", true);
+            $('#ToDate').prop("readonly", false);
+
+            document.getElementById('spSelectSite').innerText = "Select Site";
+            $('#divState').hide();
+        }
+
+        $.ajax({
+            url: '/SaleOrder/ServiceType', type: 'post', dataType: 'json',
+            data: { 'serviceID': ServiceID },
+            success: function (data) {
+                $("#divload").css({ 'display': 'none' });
+                if (data.ServiceType == "Single") {
+                    $('#FromDate').attr("disabled", false);
+                    $('#ToDate').attr("disabled", "disabled");
+                    document.getElementById('spEndDate').innerHTML = "NA";
+                }
+                else if (data.ServiceType == "Double") {
+                    $('#FromDate').attr("disabled", false);
+                    $('#ToDate').attr("disabled", false);
+                    document.getElementById('spEndDate').innerHTML = "End Date";
+                }
+
+                if (data.Result == "1") {
+
+                    $("#MediaTypeID").html("");
+                    $("#MediaTypeID").empty();
+                    $("#MediaTypeID").append($('<option></option>').val(0).html('Select Media Type'));
+                    $.each(data.lstMediaType, function (index, Sectorcount) {
+                        $("#MediaTypeID").append(
+                              $('<option></option>').val(Sectorcount.Value).html(Sectorcount.Text));
+                    });
+
+                    if (serviceType != 'Display') {
+                        $("#VendorID").html("");
+                        $("#VendorID").empty();
+                        $("#VendorID").append($('<option></option>').val(0).html('Select Vendor'));
+                        $.each(data.lstVendors, function (index, Sectorcount) {
+                            $("#VendorID").append(
+                                  $('<option></option>').val(Sectorcount.Value).html(Sectorcount.Text));
+
+                        });
+
+                    }
+                    else {
+                        $("#VendorID").empty();
+                        $("#VendorID").append($('<option></option>').val(0).html('Select Vendor'));
+
+                        $("#SiteID").empty();
+                        $("#SiteID").append($('<option></option>').val(0).html('Select Site'));
+                    }
+                }
+            }
+        });
+
+    }
+
+    function onVendorChange() {
+        $("#divload").css({ 'display': '' });
+        $('#SiteID').val(0);
+
+        document.getElementById("hdVendorID").value = $('#VendorID').val();
+        $('#txtVendorName').val($('#VendorID').find(":selected").text());
+
+        var ServiceID = $('#ServiceID').val();
+        var vendorID = $('#VendorID').val();
+        var city = $('#CityID').val();
+
+        $.ajax({
+            url: '/SaleOrder/VendorChange', type: 'post', dataType: 'json',
+            data: { 'vendorID': vendorID, 'city': city, 'serviceID': ServiceID },
+            success: function (data) {
+                $("#divload").css({ 'display': 'none' });
+                if (data.Result == "1") {
+
+                    $("#SiteID").html(""); // clear before appending new list
+                    $("#SiteID").empty();
+                    $("#SiteID").append(
+                          $('<option></option>').val(0).html('Select Site'));
+                    $.each(data.ddlSites, function (index, Sectorcount) {
+                        $("#SiteID").append(
+                              $('<option></option>').val(Sectorcount.Value).html(Sectorcount.Text));
+
+                    });
+
+                }
+            }
+        });
+    }
+
+    function onCityChange() {
+        $("#divload").css({ 'display': '' });
+        $('#VendorID').val(0);
+        $('#SiteID').val(0);
+
+        var cityID = $('#CityID').val();
+        var serviceID = $('#ServiceID').val();
+
+        $.ajax({
+            url: '/SaleOrder/CityChange', type: 'post', dataType: 'json',
+            data: { 'cityID': cityID, 'serviceID': serviceID },
+            success: function (data) {
+                $("#divload").css({ 'display': 'none' });
+                if (data.Result == "1") {
+
+                    $("#VendorID").html(""); // clear before appending new list
+                    $("#VendorID").empty();
+                    $("#VendorID").append(
+                          $('<option></option>').val(0).html('Select Vendor'));
+                    $.each(data.lstVendors, function (index, Sectorcount) {
+                        $("#VendorID").append(
+                              $('<option></option>').val(Sectorcount.Value).html(Sectorcount.Text));
+
+                    });
+
+                }
+            }
+        });
+
+        $("#divload").css({ 'display': 'none' });
+    }
+
+    function fonSiteChange() {
+        $("#divload").css({ 'display': '' });
+        var siteID = $('#SiteID').val();
+        var serviceID = $('#ServiceID').val();
+
+        $.ajax({
+            url: '/SaleOrder/SiteChange', type: 'post', dataType: 'json',
+            data: { 'siteID': siteID },
+            success: function (data) {
+                $("#divload").css({ 'display': 'none' });
+                if (data.Result == "1") {
+                    if (data.IsDummySite == "True") {
+                        $('#Height').removeAttr("readonly");
+                        $('#Width').removeAttr("readonly");
+                    }
+                    else {
+                        $('#Height').attr("readonly", "readonly");
+                        $('#Width').attr("readonly", "readonly");
+                    }
+
+                    $('#tblSiteInfo').show();
+                    document.getElementById('spSiteInfo').innerHTML = data.SiteInfo + ", Facing : " + data.Facing + ", Media Type : " + data.MediaType + ", Media Vehicle : " + data.MediaVehicle;
+                    $("#imgSite").attr("src", data.SiteImage);
+                    $('#Side').val(data.Side);
+                    $('#Height').val(data.Height);
+                    $('#Width').val(data.Width);
+                    $('#Area').val(data.Area);
+                    $('#Unit').val(data.Unit);
+                    $('#Rate').val(data.Rate);
+                    if (serviceID == "2" || serviceID == "6") {
+                        $('#MediaTypeID').val(data.MediaTypeID);
+                    }
+                    document.getElementById("hdVendorID").value = data.VendorID;
+                    calculateAmount1();
+                }
+            }
+        });
+    }
+
+    function calculateArea() {
+        $("#divload").css({ 'display': '' });
+        var height, width, Side, Unit, area = 1;
+
+        height = $('#Height').val();
+        width = $('#Width').val();
+        Side = $('#Side').val();
+        Unit = $('#Unit').val();
+
+        area = (Number)(height) * (Number)(width) * (Number)(Side) * (Number)(Unit);
+        $('#Area').val(area.toFixed(2));
+        calculateAmount1();
+        calculateAmount2();
+        calculateAmount3();
+        $("#divload").css({ 'display': 'none' });
+    }
+
+    function calculateAmount1() {
+        $("#divload").css({ 'display': '' });
+        var unit, rate, side, area, height, amount = 0;
+
+        side = $('#Side').val();
+        unit = $('#Unit').val();
+        area = $('#Area').val();
+        rate = $('#Rate').val();
+        height = $('#Height').val();
+        width = $('#Width').val();
+        //alert("Side : " + side + "\nUnit : " + unit + "\nArea : " + area + "\nRate : " + rate);
+        amount = side * unit * area * rate;
+        //alert("Amount : " + amount);
+        $('#Amt').val((area * rate).toFixed(2));
+        //Changed By alok chauhan on 12 Feb 2020
+        $('#TotalAmount').val((area * rate).toFixed(2));
+        area = (Number)(height) * (Number)(width) * (Number)(side) * (Number)(unit);
+        $('#Area').val(area.toFixed(2));
+        //$('#TotalAmount').val(amount.toFixed(2));
+        //Changed By alok chauhan on 12 Feb 2020
+
+        calculateAmount2();
+        calculateAmount3();
+        $("#divload").css({ 'display': 'none' });
+    }
+
+    function calculateAmount2() {
+        $("#divload").css({ 'display': '' });
+        var tds, discount, amount, amounttoSubtract = 0;
+
+
+        tds = $('#TDS').val();
+        discount = $('#Discount').val();
+        amount = $('#TotalAmount').val();
+
+        amounttoSubtract = (Number)(tds) + (Number)(discount);
+        //alert("Sub : " + amounttoSubtract + "\nPrev : " + amount);
+        amount = amount - amounttoSubtract;
+        $('#FinalAmount').val(amount.toFixed(2));
+        calculateAmount3();
+        $("#divload").css({ 'display': 'none' });
+    }
+
+    function calculateAmount3() {
+        var totalamount = 0;
+        var cgstpercent, sgstpercent, igstpercent, cgstvalue, sgstvalue, igstvalue, amount = 0;
+        cgstpercent = $('#CGST').val();
+        sgstpercent = $('#SGST').val();
+        igstpercent = $('#IGST').val();
+
+        amount = $('#TotalAmount').val();
+
+        cgstvalue = amount * cgstpercent / 100;
+        sgstvalue = amount * sgstpercent / 100;
+        igstvalue = amount * igstpercent / 100;
+
+        totalamount = (Number)(amount) + (Number)(cgstvalue) + (Number)(sgstvalue) + (Number)(igstvalue);
+        $('#FinalAmount').val(totalamount.toFixed(2));
+
+        //Calculate TDS & Discount
+        var tds, discount, amount, amounttoSubtract = 0;
+
+        tds = $('#TDS').val();
+        discount = $('#Discount').val();
+        amount = $('#FinalAmount').val();
+
+        amounttoSubtract = (Number)(tds) + (Number)(discount);
+        amount = amount - amounttoSubtract;
+        $('#FinalAmount').val(amount.toFixed(2));
+        //Calculate TDS & Discount
+    }
+
+    function calculateRateFromAmount() {
+        var rate = (Number)($('#Amt').val()) / (Number)($('#Area').val());
+
+        $('#Rate').val(rate);
+        calculateAmount1();
+    }
+
+    function isNumber(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31
+          && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+
+    function validateVendor() {
+        $("#divload").css({ 'display': '' });
+        $(".errortext").removeClass("errortext");
+        if ($('#SalesOrderNo').val() == '') {
+            $("#SalesOrderNo").addClass('errortext');
+            $('#SalesOrderNo').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#OrderDate').val() == '') {
+            $("#OrderDate").addClass('errortext');
+            $('#OrderDate').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#PaymentTermsID').val() == "") {
+            $("#PaymentTermsID").addClass('errortext');
+            $('#PaymentTermsID').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#CustomerName').val() == '') {
+            $("#CustomerName").addClass('errortext');
+            $('#CustomerName').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#CampaignNumber').val() == '') {
+            $("#CampaignNumber").addClass('errortext');
+            $('#CampaignNumber').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#SalesPersonID').val() == "0") {
+            $("#SalesPersonID").addClass('errortext');
+            $('#SalesPersonID').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#OperationExecutiveID').val() == "0") {
+            $("#OperationExecutiveID").addClass('errortext');
+            $('#OperationExecutiveID').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#BillingSnapsID').val() == "0") {
+            $("#BillingSnapsID").addClass('errortext');
+            $('#BillingSnapsID').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+
+        if ($('#POReceived').val() == "0") {
+            $("#POReceived").addClass('errortext');
+            $('#POReceived').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+
+        if ($('#POReceived').val() == "1") {
+            if ($('#PONumber').val() == '') {
+                $("#PONumber").addClass('errortext');
+                $('#PONumber').focus();
+                $("#divload").css({ 'display': 'none' });
+                return false;
+            }
+        }
+        else if ($('#POReceived').val() == "3") {
+            if ($('#POImagePath').val() == '') {
+                $("#POImagePath").addClass('errortext');
+                $('#POImagePath').focus();
+                $("#divload").css({ 'display': 'none' });
+                return false;
+            }
+        }
+
+        var rows = document.getElementById("file_export").getElementsByTagName("tr").length;
+        if ((Number)(rows) <= 1) {
+            alert("Add values in Lines");
+            $('#SiteID').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+
+        var result = confirm('Are you sure you want to save the Changes ?');
+        if (result == false) {
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        //$("#divload").css({ 'display': 'none' });
+    }
+
+    function validateFormForPostSO() {
+        $("#divload").css({ 'display': '' });
+        $(".errortext").removeClass("errortext");
+        if ($('#SalesOrderNo').val() == '') {
+            $("#SalesOrderNo").addClass('errortext');
+            $('#SalesOrderNo').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#OrderDate').val() == '') {
+            $("#OrderDate").addClass('errortext');
+            $('#OrderDate').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#PaymentTermsID').val() == "") {
+            $("#PaymentTermsID").addClass('errortext');
+            $('#PaymentTermsID').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#CustomerName').val() == '') {
+            $("#CustomerName").addClass('errortext');
+            $('#CustomerName').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#CampaignNumber').val() == '') {
+            $("#CampaignNumber").addClass('errortext');
+            $('#CampaignNumber').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#SalesPersonID').val() == "0") {
+            $("#SalesPersonID").addClass('errortext');
+            $('#SalesPersonID').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#OperationExecutiveID').val() == "0") {
+            $("#OperationExecutiveID").addClass('errortext');
+            $('#OperationExecutiveID').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#BillingSnapsID').val() == "0") {
+            $("#BillingSnapsID").addClass('errortext');
+            $('#BillingSnapsID').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+
+        if ($('#POReceived').val() == "0") {
+            $("#POReceived").addClass('errortext');
+            $('#POReceived').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#POReceived').val() == "2") {
+            $("#POReceived").addClass('errortext');
+            $('#POReceived').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        if ($('#POReceived').val() == "1") {
+            if ($('#PONumber').val() == '') {
+                $("#PONumber").addClass('errortext');
+                $('#PONumber').focus();
+                $("#divload").css({ 'display': 'none' });
+                return false;
+            }
+        }
+        else if ($('#POReceived').val() == "3") {
+            if ($('#POImagePath').val() == '') {
+                $("#POImagePath").addClass('errortext');
+                $('#POImagePath').focus();
+                $("#divload").css({ 'display': 'none' });
+                return false;
+            }
+        }
+
+        var rows = document.getElementById("file_export").getElementsByTagName("tr").length;
+        if ((Number)(rows) <= 1) {
+            alert("Add values in Lines");
+            $('#SiteID').focus();
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+
+        var result = confirm('Are you sure you want to save the Changes ?');
+        if (result == false) {
+            $("#divload").css({ 'display': 'none' });
+            return false;
+        }
+        //$("#divload").css({ 'display': 'none' });
+    }
+
+    function getstatecity() {
+        $("#divload").css({ 'display': '' });
+        $.ajax({
+            url: "/Master/GetStateCity",
+            Type: "Get",
+            DataType: "JSON",
+            data: { PinCode: $("#Pincode").val() },
+            success: function (data) {
+                $("#divload").css({ 'display': 'none' });
+                if (data.Result == "1") {
+                    $("#StateName").val(data.StateName);
+                    $("#City").val(data.City);
+                }
+                else {
+                    $("#StateName").val('');
+                    $("#City").val('');
+                    $("#PinCode").val('');
+                    alert('Invalid PinCode');
+                    $('#PinCode').focus();
+                }
+            }
+        });
+    }
+
+</script>

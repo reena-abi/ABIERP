@@ -1,0 +1,284 @@
+﻿@model AdvertisingERP.Models.SaleOrder
+
+@{
+    Layout = null;
+}
+
+
+<style>
+    table, th, td {
+        font-size: medium;
+        /*border: 1px solid black;*/
+        border-collapse: collapse;
+    }
+
+    th, td {
+        font-size: medium;
+        padding: 5px;
+    }
+
+    .auto-style1 {
+        width: 100%;
+        border: 1px solid #ddd;
+        max-width: 100%;
+        margin-bottom: 20px;
+        background-color: transparent;
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
+
+    .auto-style2 {
+        width: 100%;
+        margin-top: -19px;
+        max-width: 100%;
+        margin-bottom: 20px;
+        background-color: transparent;
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
+</style>
+
+<div>
+    <br />
+    <table style="width:100%;">
+        <tbody>
+            <tr>
+                <td style="background-color:grey; color:white; width:36%">
+                    <h1> @ViewBag.CompanyName</h1>
+                </td>
+                <td style="border-right:2px solid black; width:28%">
+                    <b>Address</b>
+                    <br />
+                    <small>@ViewBag.CompanyAddress</small>
+                    <br />GSTN : @ViewBag.GSTIN
+                    <br />PAN &nbsp;:@ViewBag.PAN
+                </td>
+                <td style="border-right:2px solid black; width:9%">
+                    <b>Mail</b>
+                    <br />
+                    <small>@ViewBag.CompanyEmail</small>
+                </td>
+                <td style="border-right:2px solid black; width:8%">
+                    <b>Mobile</b>
+                    <br />
+                    <small>@ViewBag.CompanyMobile</small>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <table class="auto-style1">
+        <thead>
+            <tr style='color:white;font-weight: 400;box-sizing: border-box;background-color: grey;'>
+                <th style='border-top: 0;vertical-align: middle;border-bottom-width: 2px;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align: left;'>
+                    INVOICE TO
+                </th>
+                <th colspan="2" style='border-top: 0;vertical-align: middle;border-bottom-width: 2px;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align: left;'>
+                    INVOICE DETAILS
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style='background-color: #ffffff;box-sizing: border-box;'>
+                <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;' rowspan="5">
+                    <b style="color: rgb(0, 0, 0); font-family:&quot;Times New Roman&quot; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;">
+                        @Model.CustomerName<br />
+                    @Model.ConcernPerson1<br />
+                </b><br /><br /><span style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+                    @Model.StoreName,@Model.CustomerAddress<br />
+                Contact No : @Model.CompanyMobile<br />
+                Email : @Model.Email <br />
+                Store Code/Type : @Model.StoreCode/@Model.StoreType
+            </span><br /><b style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;">GSTIN : @Model.GSTIN</b>
+        </td>
+        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'><b style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: right; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;">Invoice No</b></td>
+        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>@Model.InvoiceNo</td>
+    </tr>
+    <tr style='background-color: #ffffff;box-sizing: border-box;'>
+        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'><b style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: right; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;">Invoice Date<span>&nbsp;</span></b></td>
+        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>
+            @if (Model.InvoiceNo == "CAA/2019-20/00011")
+            {
+                <p> 11/11/2019</p>
+            }
+            else if (Model.InvoiceNo == "CAA/2019-20/00010")
+            {
+                <p> 01/11/2019</p>
+            }
+            else
+            {
+                @DateTime.Now.ToString("dd/MM/yyyy")
+            }
+        </td>
+    </tr>
+    <tr style='background-color: #ffffff;box-sizing: border-box;'>
+        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'><b style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: right; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;">PO/Ref No</b></td>
+        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>@ViewBag.PONumber</td>
+    </tr>
+    <tr style='background-color: #ffffff;box-sizing: border-box;'>
+        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'><b style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: right; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;">PO. Date</b></td>
+        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>@ViewBag.PODate</td>
+    </tr>
+    <tr style='background-color: #ffffff;box-sizing: border-box;'>
+        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'><b style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: right; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;">Campian With Duration</b></td>
+        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>@ViewBag.Description</td>
+    </tr>
+</tbody>
+</table>
+<br />
+
+<br />
+<table style="width:100%;color:black;">
+    <thead>
+        <tr style='color:white;font-weight: 400;box-sizing: border-box;background-color: grey;'>
+            <th style='border-top: 0;vertical-align: middle;border-bottom-width: 2px;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align: center;'>
+                Tax Invoice
+            </th>
+
+        </tr>
+    </thead>
+
+</table>
+
+<table class="auto-style1">
+
+    <tbody>
+        <tr style='background-color: #ffffff;box-sizing: border-box;'>
+            <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>SNo</td>
+            <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>SAC/HSNCode</td>
+            <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>Service</td>
+            <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>Description Of Goods</td>
+
+            <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>Width</td>
+            <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>Height</td>
+            <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>Quantity</td>
+            <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>Area</td>
+            <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>Rate (sqft/each)</td>
+            <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align:right'>Amount</td>
+        </tr>
+        @if (Model != null)
+            {
+                if (Model.lstsaleorder != null)
+                {
+                    var i = 1;
+                    foreach (var item in Model.lstsaleorder)
+                    {
+                    <tr style='background-color: #ffffff;box-sizing: border-box;'>
+                        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>@i</td>
+                        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>@item.HSNCode</td>
+                        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>@item.ServiceName</td>
+                        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>@item.SiteName</td>
+
+                        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>@item.Width</td>
+                        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>@item.Height</td>
+                        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>@item.Quantity</td>
+                        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>@item.Area</td>
+                        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;'>@item.Rate</td>
+                        <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align:right'>@item.TotalAmount</td>
+
+                    </tr>
+                    i++;
+                }
+            }
+        }
+        <tr>
+            <td colspan="9" style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align:right'><b>Total Amount</b></td>
+            <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align:right'>&#8377; @ViewBag.TotalWithoutGST</td>
+        </tr>
+        <tr>
+            <td colspan="9" style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align:right'><b>Total CGST</b></td>
+            <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align:right'>&#8377; @ViewBag.CGST</td>
+        </tr>
+        <tr>
+            <td colspan="9" style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align:right'><b>Total SGST</b></td>
+            <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align:right'>&#8377; @ViewBag.SGST</td>
+        </tr>
+        <tr>
+            <td colspan="9" style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align:right'><b>Total IGST</b></td>
+            <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align:right'>&#8377;@ViewBag.IGST</td>
+        </tr>
+        <tr>
+            <td colspan="9" style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align:right'><b>Total</b></td>
+            <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align:right'>&#8377; @ViewBag.FinalAmount</td>
+        </tr>
+
+    </tbody>
+
+
+</table>
+<table class="auto-style2">
+    <tbody>
+
+        <tr style='background-color: #ffffff;box-sizing: border-box;'>
+
+            <td colspan="9" style='vertical-align: middle;padding: 8px;line-height: 1.42857143;'>
+                (Amount Chargeable in Words)
+                <br />
+                <b>@ViewBag.AmountInWords</b>
+            </td>
+            <td style='vertical-align: middle;padding: 8px;line-height: 1.42857143;text-align: right;'><b>E.&O.E.</b></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+<table style="width: 100%;" class="table table-striped">
+    <tbody>
+        <tr>
+            <td style="text-align:left;" colspan="2"><b>  Terms and Conditions :- </b></td>
+
+        </tr>
+        <tr>
+            <td style="text-align:left;" colspan="2">1. Taxes will be charge18% extra as per GST applicable.</td>
+
+        </tr>
+        <tr>
+            <td style="text-align:left;" colspan="2">2.Payments will be 100% advance in BTL branding.</td>
+
+        </tr>
+        <tr>
+            <td style="text-align:left;" colspan="2"> 3.Transportation and other charges will be extra.</td>
+
+        </tr>
+        <tr>
+            <td style="text-align:left;"> 4.In case of any damage or theft of the flex/media the client shall bear the cost of the flex/media or provide the new flex/media.</td>
+
+        </tr>
+        <tr>
+            <td style="text-align:left;"> 5.All disputes are Subject to Lucknow jurisdiction.</td>
+
+        </tr>
+
+    </tbody>
+</table>
+
+<br />
+<table class="auto-style1">
+
+    <tbody>
+        <tr style='background-color:grey;box-sizing: border-box;color:wg'>
+            <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;' colspan="2">Payment Information</td>
+        </tr>
+        <tr style='background-color: #ffffff;box-sizing: border-box;'>
+            <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;' class="auto-style6">
+                Bank : @ViewBag.BankName
+                <br />Account No : @ViewBag.AccountNo<br />IFSC : @ViewBag.IFSC
+            </td>
+            <td style='vertical-align: middle;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align:right'>
+                For Afluex Multiservices LLP<br />
+
+                <br />
+                <br />
+                <br />
+                <br />
+                (Authorised Signatory)
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</div>

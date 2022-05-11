@@ -1,0 +1,178 @@
+﻿@model AdvertisingERP.Models.Master
+
+@{
+    ViewBag.Title = "ServiceList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("ServiceList", "Master", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+{
+    <div class="page-content">
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                @*<div class="page-wrapper">*@
+
+                <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+                    <div class="breadcrumb-title pe-3">Master</div>
+                    <div class="ps-3">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb mb-0 p-0">
+                                <li class="breadcrumb-item">
+                                    <a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">Service List</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="ms-auto">
+                        <div class="btn-group">
+                            <a href="/Master/ServiceMaster" class="btn btn-light list-button">Add Service</a>
+
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+
+                @*<div class="alert alert-success" style="display:@ViewBag.saverrormsg">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span> </button>
+                        <h5 class="text-success"><i class="fa fa-check-circle"></i>@TempData["ServiceDelete"]</h5>
+
+                    </div>*@
+                <div class="alert alert-success" style="display:none">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span> </button>
+                    <h5 class="text-success"><i class="fa fa-check-circle"></i></h5>
+
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            @if (@TempData["ServiceDelete"] != null)
+                            {
+                                <div class="alert border-0 alert-dismissible fade show py-2">
+                                    <div class="d-flex align-items-center">
+                                        <div class="font-35 text-white">
+                                            <i class="bx bxs-check-circle" style="color:green"></i>
+                                        </div>
+                                        <div class="ms-3">
+                                            <div class="text-white">@TempData["ServiceDelete"]!</div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+
+                            }
+                            @*@if (@TempData["SiteError"] != null)
+                                {
+                                    <div class="alert border-0 alert-dismissible fade show py-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="font-35 text-white">
+                                                <i class="bx bxs-check-circle" style="color:green"></i>
+                                            </div>
+                                            <div class="ms-3">
+                                                <div class="text-white">@TempData["SiteError"]!</div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                }*@
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <div class="col-md-12">
+                                                <label class="control-label">HSN Code </label>
+                                                @Html.TextBoxFor(m => m.HSNCode, new { @class = "form-control", @Placeholder = "HSN Code" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <div class="col-md-12 mt-4">
+                                                <input type="submit" value="Get Details" class="btn btn-light btndown" name="GetDetails" onclick="return getdeatils()" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                </div>
+                                <div class="table-responsive mt-5">
+                                    <table id="example2" class="table table-striped table-bordered display">
+                                        <thead>
+                                            <tr>
+                                                <th>Service Name</th>
+                                                <th>HSN Code</th>
+
+                                                <th>CGST</th>
+                                                <th>IGST</th>
+                                                <th>SGST</th>
+                                                <th>Action</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (Model != null)
+                                            {
+                                                if (Model.lstSites != null)
+                                                {
+                                                    foreach (var item in Model.lstSites)
+                                                    {
+                                                        <tr>
+                                                            <td>@item.ServiceName</td>
+                                                            <td>@item.HSNCode</td>
+                                                            <td>@item.CGST</td>
+                                                            <td>@item.IGST</td>
+                                                            <td>@item.SGST</td>
+                                                            <td>
+                                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                                    <button type="button" class="btn btn-light">
+                                                                        <a href="/Master/ServiceMaster?ServiceId=@item.ServiceId" class="text-warning" title="Edit"><i class="bx bx-pencil"></i>
+                                                                        </a>
+                                                                    </button>
+
+                                                                    <button type="button" class="btn btn-light">
+                                                                        <a href="/Master/DeleteService?ServiceId=@item.ServiceId" onclick="return confirm('Do you want to delete this Service ?');" class="label label-danger"><i class="bx bx-trash-alt"></i>
+                                                                        </a>
+                                                                    </button>
+
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                }
+                                            }
+
+                                        </tbody>
+                                        @*<tfoot>
+                                                <tr>
+                                                    <th>Action</th>
+                                                    <th>Service Name</th>
+                                                    <th>HSN Code</th>
+
+                                                    <th>CGST</th>
+                                                    <th>IGST</th>
+                                                    <th>SGST</th>
+
+                                                </tr>
+                                            </tfoot>*@
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*</div>*@
+            </div>
+        </div>
+    </div>
+}
+<script src="/assets/libs/jquery/dist/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $("#divload").css({ 'display': 'none' });
+    });
+    function getdeatils() {
+        $("#divload").css({ 'display': '' });
+    }
+</script>
